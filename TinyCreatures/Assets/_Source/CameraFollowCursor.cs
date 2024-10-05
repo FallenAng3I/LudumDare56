@@ -5,9 +5,9 @@ using UnityEngine;
 
 sealed public class CameraFollowCursor : MonoBehaviour
 {
-    public Transform player;             // Игрок, за которым следует камера
-    public CinemachineVirtualCamera cam; // Virtual Camera от Cinemachine
-    public float followRadius = 2f;      // Радиус, в пределах которого камера может смещаться к курсору
+    public Transform player;             // РРіСЂРѕРє, Р·Р° РєРѕС‚РѕСЂС‹Рј СЃР»РµРґСѓРµС‚ РєР°РјРµСЂР°
+    public CinemachineVirtualCamera cam; // Virtual Camera РѕС‚ Cinemachine
+    public float followRadius = 2f;      // Р Р°РґРёСѓСЃ, РІ РїСЂРµРґРµР»Р°С… РєРѕС‚РѕСЂРѕРіРѕ РєР°РјРµСЂР° РјРѕР¶РµС‚ СЃРјРµС‰Р°С‚СЊСЃСЏ Рє РєСѓСЂСЃРѕСЂСѓ
 
     private CinemachineFramingTransposer transposer;
     private Vector3 mouseWorldPos;
@@ -16,27 +16,27 @@ sealed public class CameraFollowCursor : MonoBehaviour
 
     void Start()
     {
-        // Получаем компонент FramingTransposer
+        // РџРѕР»СѓС‡Р°РµРј РєРѕРјРїРѕРЅРµРЅС‚ FramingTransposer
         transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     void Update()
     {
-        // Получаем мировую позицию курсора
+        // РџРѕР»СѓС‡Р°РµРј РјРёСЂРѕРІСѓСЋ РїРѕР·РёС†РёСЋ РєСѓСЂСЃРѕСЂР°
         mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPos.z = 0f;  // Обнуляем Z координату для 2D
+        mouseWorldPos.z = 0f;  // РћР±РЅСѓР»СЏРµРј Z РєРѕРѕСЂРґРёРЅР°С‚Сѓ РґР»СЏ 2D
 
-        // Вычисляем смещение курсора относительно игрока
+        // Р’С‹С‡РёСЃР»СЏРµРј СЃРјРµС‰РµРЅРёРµ РєСѓСЂСЃРѕСЂР° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РёРіСЂРѕРєР°
         playerPos = player.position;
         offset = mouseWorldPos - playerPos;
 
-        // Ограничиваем смещение радиусом
+        // РћРіСЂР°РЅРёС‡РёРІР°РµРј СЃРјРµС‰РµРЅРёРµ СЂР°РґРёСѓСЃРѕРј
         if (offset.magnitude > followRadius)
         {
             offset = offset.normalized * followRadius;
         }
 
-        // Устанавливаем смещение камеры в сторону курсора
+        // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃРјРµС‰РµРЅРёРµ РєР°РјРµСЂС‹ РІ СЃС‚РѕСЂРѕРЅСѓ РєСѓСЂСЃРѕСЂР°
         transposer.m_TrackedObjectOffset = new Vector3(offset.x, offset.y, 0);
     }
 }

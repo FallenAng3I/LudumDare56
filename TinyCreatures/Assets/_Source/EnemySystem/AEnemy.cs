@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using _Source.PlayerSystem;
@@ -18,6 +19,12 @@ namespace _Source.EnemySystem
         protected bool isPlayerDetected;
 
         private float attackTimer;
+
+        private void Start()
+        {
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"));
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
+        }
 
         protected virtual void Update()
         {
