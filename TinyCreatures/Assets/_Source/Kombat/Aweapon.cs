@@ -10,8 +10,6 @@ public class Aweapon : MonoBehaviour , IShooting
 
     public virtual void shoot()
     {
-        GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
-        rb.velocity = firePoint.right * projectileSpeed;
+        
     }
 }
