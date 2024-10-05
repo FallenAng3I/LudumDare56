@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 public class GrenadeLauncher : Aweapon
 {
-    private bool canShoot=true;
+    private bool canShoot = true;
     public override void shoot()
     {
         GameObject newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);

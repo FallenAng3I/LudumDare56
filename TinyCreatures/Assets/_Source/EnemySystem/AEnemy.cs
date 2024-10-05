@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using _Source.PlayerSystem;
@@ -7,13 +6,13 @@ namespace _Source.EnemySystem
 {
     public abstract class AEnemy : MonoBehaviour
     {
-        [SerializeField] protected int health;              // Здоровье          
-        [SerializeField] protected float speed;             // Скорость          
-        [SerializeField] protected int damage;              // Урон               
-        [SerializeField] protected float attackRange;       // Радиус атак       
-        [SerializeField] protected float detectionRadius;   // Радиус видимости  
-        [SerializeField] protected LayerMask playerLayer;   // Слой игрока       
-        [SerializeField] protected float attackRate = 1f;   // Количество атак в секунду
+        [SerializeField] protected int health;                // Здоровье          
+        [SerializeField] protected float speed;               // Скорость          
+        [SerializeField] protected int damage;                // Урон               
+        [SerializeField] protected float attackRange;         // Радиус атак       
+        [SerializeField] protected float detectionRadius;     // Радиус видимости  
+        [SerializeField] protected LayerMask playerLayer;     // Слой игрока       
+        [SerializeField] protected float attackRate = 1f;     // Количество атак в секунду
 
         protected Transform player;
         protected bool isPlayerDetected;
