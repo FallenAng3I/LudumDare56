@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShotGun : Aweapon
 {
-    [SerializeField] protected int pelletCount = 5; 
-    [SerializeField] protected float spreadAngle = 15f;
     public override void shoot()
     {
         Debug.Log("PAW PAW");

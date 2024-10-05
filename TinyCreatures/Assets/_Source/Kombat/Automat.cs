@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,12 +7,7 @@ namespace _Source.Kombat
 { 
     public class Automat : Aweapon
     { 
-        [SerializeField] protected int pelletCount=20; 
-        [SerializeField] protected float spreadAngle = 15f;
-        [SerializeField] private float Rate;
-        [SerializeField] private float bulletDestroyTime = 2f;
         private bool canShoot=true;
-        
         private void Update()
         {
             if (Input.GetAxis("Fire1") != 0)
@@ -26,7 +22,7 @@ namespace _Source.Kombat
                 Debug.Log("piy piy");
                 for (int i = 0; i < pelletCount; i++)
                 {
-                    GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                    GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
                     Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
 
                     float spread = Random.Range(-spreadAngle, spreadAngle);
