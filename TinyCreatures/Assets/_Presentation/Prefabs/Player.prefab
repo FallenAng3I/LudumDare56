@@ -53,6 +53,7 @@ MonoBehaviour:
   health: 100
   speed: 10
   jumpForce: 10
+  invulnerabilityDuration: 3
 --- !u!114 &2045188827110504497
 MonoBehaviour:
   m_ObjectHideFlags: 0
