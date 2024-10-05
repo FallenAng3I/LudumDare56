@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Rat : MonoBehaviour
+namespace _Source.EnemySystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Rat : AEnemy
     {
-        
-    }
+        protected override void TakeDamage(int amount)
+        {
+            base.TakeDamage(amount);
+        }
+    
+        protected override void Attack()
+        {
+            // Логика ближней атаки
+            Debug.Log("Rat performs a melee attack!");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Die()
+        {
+            base.Die();
+            Debug.Log("Rat is dead.");
+        }
     }
 }
