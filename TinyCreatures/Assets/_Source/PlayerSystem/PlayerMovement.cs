@@ -19,11 +19,13 @@ sealed public class PlayerMovement : MonoBehaviour
     private float defaultSpeed;
     private float speedMultiplier;
     private float jumpForce;
-
-    private PlayerControls gameInput;
+    private float slideSpeed; // Скорость скольжения
 
     private bool isFacingRight;
     private float horizontal;
+    private bool isSliding; // Флаг скольжения
+    private bool isOnSlope; // Флаг нахождения на наклонной поверхности
+    private Vector2 slopeNormal; // Нормаль поверхности
 
     [HideInInspector] public bool canJump = true;
     [HideInInspector] public bool canSprint = true;
@@ -35,19 +37,21 @@ sealed public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         staminaController = GetComponent<StaminaController>();
-        gameInput = new PlayerControls();
         speed = player.speed;
         defaultSpeed = speed;
         speedMultiplier = player.sprintMultiplier;
         jumpForce = player.jumpForce;
-        //gameInput.Enable();
+        slideSpeed = player.slideSpeed;
     }
 
     private void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if (!isOnSlope) // Только если не на наклонной поверхности
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
 
-        if(!isFacingRight && horizontal < 0f)
+        if (!isFacingRight && horizontal < 0f)
         {
             Flip();
         }
@@ -58,6 +62,33 @@ sealed public class PlayerMovement : MonoBehaviour
 
         HandleJump();
         HandleSprint();
+        HandleSlide();
+    }
+
+    private void HandleSlide()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.5f, groundLayer);
+
+        if (hit && Mathf.Abs(hit.normal.x) > 0.1f) // Проверяем, есть ли наклон
+        {
+            isOnSlope = true;
+            slopeNormal = hit.normal; // Получаем нормаль поверхности
+
+            // Рассчитываем направление скольжения по наклону
+            Vector2 slideDirection = new Vector2(slopeNormal.x, -slopeNormal.y);
+
+            // Скорость скольжения зависит от состояния спринта
+            float currentSlideSpeed = sprinting ? slideSpeed * speedMultiplier : slideSpeed;
+
+            // Добавляем скольжение
+            rb.velocity = new Vector2(slideDirection.x * currentSlideSpeed, rb.velocity.y);
+        }
+        else
+        {
+            isOnSlope = false;
+        }
+
+        Debug.Log("На наклонной? " + isOnSlope + " на земле? " + IsGrounded());
     }
 
     private void HandleJump()
@@ -139,6 +170,10 @@ sealed public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
+        if (isOnSlope)
+        {
+            return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
+        }
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
@@ -152,6 +187,15 @@ sealed public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x; 
+        horizontal = context.ReadValue<Vector2>().x;
+
+        if (isOnSlope && horizontal > 0f && slopeNormal.x > 0f) // Если на наклоне и пытается идти вверх
+        {
+            horizontal = 0; // Запрещаем движение вверх
+        }
+        else if (isOnSlope && horizontal < 0f && slopeNormal.x < 0f) // Аналогично для другой стороны
+        {
+            horizontal = 0;
+        }
     }
 }
