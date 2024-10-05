@@ -11,9 +11,21 @@ public class Aweapon : MonoBehaviour , IShooting
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected float projectileSpeed = 5f;
     [SerializeField] protected float Rate;
+    [SerializeField] protected bool canShoot;
 
-    public virtual void shoot()
+    public virtual void Shoot()
     {
         
+    }
+    protected IEnumerator ShootCoroutine()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(Rate);
+        canShoot = true;
+    }
+    protected IEnumerator DestroyAfterDelay(GameObject bullet, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(bullet);
     }
 }

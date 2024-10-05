@@ -7,7 +7,7 @@ namespace _Source.EnemySystem
 {
     public abstract class AEnemy : MonoBehaviour
     {
-        [SerializeField] protected int health;              // Здоровье          
+        [SerializeField] public float health;              // Здоровье          
         [SerializeField] protected float speed;             // Скорость          
         [SerializeField] protected int damage;              // Урон               
         [SerializeField] protected float attackRange;       // Радиус атак       
@@ -78,7 +78,7 @@ namespace _Source.EnemySystem
             yield return new WaitForSeconds(1f / attackRate);
         }
 
-        protected virtual void TakeDamage(int amount)
+        public virtual void TakeDamage(float amount)
         {
             health -= amount;
             if (health <= 0)

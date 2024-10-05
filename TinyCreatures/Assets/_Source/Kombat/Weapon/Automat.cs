@@ -7,15 +7,14 @@ namespace _Source.Kombat
 { 
     public class Automat : Aweapon
     { 
-        private bool canShoot=true;
         private void Update()
         {
             if (Input.GetAxis("Fire1") != 0)
             {
-                shoot();
+                Shoot();
             }
         }
-        public override void shoot()
+        public override void Shoot()
         {
             if (canShoot)
             {
@@ -35,16 +34,6 @@ namespace _Source.Kombat
                 StartCoroutine(ShootCoroutine());
             }
         }
-        private IEnumerator ShootCoroutine()
-        {
-            canShoot = false;
-            yield return new WaitForSeconds(Rate);
-            canShoot = true;
-        }
-        private IEnumerator DestroyAfterDelay(GameObject bullet, float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            Destroy(bullet);
-        }
+     
     }
 }
