@@ -4,9 +4,11 @@ namespace _Source.PlayerSystem
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private int health;       // Здоровье игрока
-        [SerializeField] private int damage;        // Урон игрока
-        [SerializeField] private float speed;       // Скорость игрока
+        [SerializeField] private int health;        // Здоровье игрока
+        public float speed;                         // Скорость игрока
+        public float jumpForce;                     // Сила прыжка    
+        //[SerializeField] private int damage;        // Урон игрока
+        
 
         public void TakeDamage(int damageAmount)
         {

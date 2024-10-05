@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Source.PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,19 +7,16 @@ using UnityEngine.InputSystem;
 sealed public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement settings")]
-    [SerializeField] private float speed = 30f;
-    [SerializeField] private float jumpingPower = 16f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-
-    public Rigidbody2D rb;
+    [SerializeField] private Player player;
+    [SerializeField] private Rigidbody2D rb;
     private bool isFacingRight;
-
     private float horizontal;
 
     private void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * player.speed, rb.velocity.y);
 
         if(!isFacingRight && horizontal < 0f)
         {
@@ -36,7 +32,7 @@ sealed public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
         }
 
         if (context.canceled && rb.velocity.y > 0f)
