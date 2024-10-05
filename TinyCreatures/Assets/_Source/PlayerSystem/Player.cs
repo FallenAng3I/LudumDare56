@@ -6,9 +6,9 @@ namespace _Source.PlayerSystem
     {
         [SerializeField] private int health;        // Здоровье игрока
         public float speed;                         // Скорость игрока
-        public float jumpForce;                     // Сила прыжка    
+        public float sprintMultiplier = 1.5f;       // Множитель скорости от спринта
+        public float jumpForce;                     // Сила прыжка
         //[SerializeField] private int damage;        // Урон игрока
-        
 
         public void TakeDamage(int damageAmount)
         {
