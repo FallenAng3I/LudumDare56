@@ -1,6 +1,7 @@
 using _Source.PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
@@ -12,7 +13,11 @@ sealed public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float slopeCheckDistance;
-    
+    [SerializeField] private PhysicsMaterial2D noFriction;
+    [SerializeField] private PhysicsMaterial2D fullFriction;
+    [SerializeField] private float maxSlopeAngle;
+    [SerializeField] private float jumpOnSlopeMultiplier = 1.5f;
+
     [HideInInspector] public StaminaController staminaController;
     [HideInInspector] public bool canJump = true;
     [HideInInspector] public bool canSprint = true;
@@ -29,12 +34,15 @@ sealed public class PlayerMovement : MonoBehaviour
     private float slideSpeed; // Скорость скольжения
     private float slopeDownAngle;
     private float slopeDownAngleOld;
+    private float slopeSideAngle;
 
     private bool isFacingRight;
     private float horizontal;
     private bool isSliding; // Флаг скольжения
     private bool isOnSlope;
+    private bool canWalkOnSlope;
     private Vector2 slopeNormal; // Нормаль поверхности
+    private RaycastHit2D slopeHit;
 
     private Vector2 newVelocity;
     private Vector2 newForce;
@@ -64,10 +72,6 @@ sealed public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-
         if (!isFacingRight && horizontal < 0f)
         {
             Flip();
@@ -77,31 +81,67 @@ sealed public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
+        MoveHandle();
         HandleJump();
         HandleSprint();
         SlopeCheck();
+    }
 
-        Debug.Log(canSprint);
+    private void MoveHandle()
+    {
+        if (IsGrounded() && !isOnSlope)
+        {
+            newVelocity.Set(speed * horizontal, 0.0f);
+            rb.velocity = newVelocity;
+        }
+        else if (IsGrounded() && isOnSlope && canWalkOnSlope)
+        {
+            newVelocity.Set(speed * slopeNormalPerp.x * -horizontal, speed * slopeNormalPerp.y * -horizontal);
+            rb.velocity = newVelocity;
+        }
+        else if (!IsGrounded())
+        {
+            newVelocity.Set(speed * horizontal, rb.velocity.y);
+            rb.velocity = newVelocity;
+        }
     }
 
     private void SlopeCheck()
     {
         Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
-        SlopeCheckVertiacl(checkPos);
+        //SlopeCheckHorizontal(checkPos);
+        SlopeCheckVertical(checkPos);
     }
 
     private void SlopeCheckHorizontal(Vector2 checkPos)
     {
-
+        RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, groundLayer);
+        RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, groundLayer); ;
+        
+        if (slopeHitFront)
+        {
+            isOnSlope = true;
+            slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
+        }
+        else if (slopeHitBack)
+        {
+            isOnSlope = true;
+            slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+        }
+        else
+        {
+            slopeSideAngle = 0.0f;
+            isOnSlope = false;
+        }
     }
 
-    private void SlopeCheckVertiacl(Vector2 checkPos)
+    private void SlopeCheckVertical(Vector2 checkPos)
     {
         RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, groundLayer);
 
         if (hit)
         {
-            slopeNormalPerp = Vector2.Perpendicular(hit.normal);
+            slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
 
             slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -112,15 +152,32 @@ sealed public class PlayerMovement : MonoBehaviour
 
             slopeDownAngleOld = slopeDownAngle;
 
-            Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
-            Debug.DrawRay(hit.point, hit.normal, Color.green);
+            slopeHit = hit;
+        }
+
+        if (slopeDownAngle > maxSlopeAngle || slopeSideAngle > maxSlopeAngle)
+        {
+            canWalkOnSlope = false;
+        }
+        else 
+        {
+            canWalkOnSlope = true; 
+        }
+
+        if (isOnSlope && horizontal == 0.0f && canWalkOnSlope)
+        {
+            rb.sharedMaterial = fullFriction;
+        }
+        else
+        {
+            rb.sharedMaterial = noFriction;
         }
     }
 
     private void HandleJump()
     {
         // Обработка прыжка, если пробел зажат и игрок на земле
-        if (jumpHeld && IsGrounded() && !hasJumped)
+        if (jumpHeld && IsGrounded() && !hasJumped && slopeDownAngle <= maxSlopeAngle)
         {
             staminaController.CanJump();  // Проверяем, хватает ли стамины на прыжок
             if (canJump)
@@ -129,6 +186,31 @@ sealed public class PlayerMovement : MonoBehaviour
                 rb.velocity = newVelocity;
                 newForce.Set(0.0f, jumpForce);
                 rb.AddForce(newForce, ForceMode2D.Impulse);
+            }
+        }
+
+        // Если игрок на наклонной поверхности, угол которой больше maxSlopeAngle, разрешаем прыжок
+        if (jumpHeld && isOnSlope && slopeDownAngle > maxSlopeAngle)
+        {
+            staminaController.CanJump();  // Проверяем, хватает ли стамины на прыжок
+            if (canJump)
+            {
+                // Используем нормаль поверхности для направления прыжка
+                Vector2 slopeNormal = slopeHit.normal;  // Нормаль наклонной поверхности
+                Vector2 jumpDirection = slopeNormal;  // Прыжок в перпендикулярном направлении
+
+                // Добавляем текущую скорость скатывания, масштабируя её
+                Vector2 slideVelocity = rb.velocity;  // Текущая скорость скатывания
+                float slideInfluenceFactor = 0.5f;  // Коэффициент влияния скорости скатывания (можно настроить)
+                Vector2 adjustedSlideVelocity = slideVelocity * slideInfluenceFactor;
+
+                // Общая сила прыжка с учётом скатывания
+                Vector2 totalJumpForce = (jumpDirection * jumpForce + adjustedSlideVelocity).normalized * jumpForce;
+
+                // Выполняем прыжок
+                rb.velocity = Vector2.zero;  // Обнуляем текущую скорость перед прыжком
+                rb.AddForce(totalJumpForce * jumpOnSlopeMultiplier, ForceMode2D.Impulse);  // Прыжок с учётом скатывания
+                hasJumped = true;
             }
         }
 
@@ -163,7 +245,6 @@ sealed public class PlayerMovement : MonoBehaviour
     {
         if (sprintHeld && staminaController.playerStamina > 0) // Если кнопка спринта зажата и есть стамина
         {
-            // Проверяем, есть ли достаточная скорость, чтобы продолжать спринт (при любых изменениях направления)
             if ((Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f) && canSprint)
             {
                 staminaController.Sprinting(); // Уменьшаем стамину при движении
@@ -184,13 +265,18 @@ sealed public class PlayerMovement : MonoBehaviour
             speed = defaultSpeed; // Возвращаем обычную скорость
         }
 
+        if (!sprintHeld && (staminaController.playerStamina > 0f && staminaController.playerStamina <= 50f))
+        {
+            canSprint = false;
+        }
+
         if (staminaController.playerStamina > 50f) // Например, спринт разрешён при >50% стамины
         {
             canSprint = true;
         }
 
         // Дополнительная проверка: если кнопка удерживается и стамина восстановилась до уровня, позволяющего спринт
-        if (sprintHeld && staminaController.playerStamina > 50f) // Например, спринт разрешён при >50% стамины
+        if (canSprint && sprintHeld)
         {
             sprinting = true;
             speed = defaultSpeed * speedMultiplier; // Возвращаем скорость спринта
@@ -214,10 +300,6 @@ sealed public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        //if (isOnSlope)
-        //{
-        //    return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
-        //}
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
@@ -231,16 +313,6 @@ sealed public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        //rb.velocity = new
         horizontal = context.ReadValue<Vector2>().x;
-
-        //if (isOnSlope && horizontal > 0f && slopeNormal.x > 0f) // Если на наклоне и пытается идти вверх
-        //{
-        //    horizontal = 0; // Запрещаем движение вверх
-        //}
-        //else if (isOnSlope && horizontal < 0f && slopeNormal.x < 0f) // Аналогично для другой стороны
-        //{
-        //    horizontal = 0;
-        //}
     }
 }
