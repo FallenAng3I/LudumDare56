@@ -84,12 +84,11 @@ namespace _Source.EnemySystem
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            // Если противник покинул стену, сбрасываем флаг
             if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
-                isClimbing = false; // Сбрасываем флаг
+                isClimbing = false;
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                rb.velocity = new Vector2(rb.velocity.x, -1); // Устанавливаем небольшую скорость вниз для спрыгивания
+                rb.velocity = new Vector2(rb.velocity.x, -1);
             }
         }
 

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2939883015397011555}
   - component: {fileID: 3440995365908628344}
   - component: {fileID: 1639086555102133333}
-  m_Layer: 5
-  m_Name: Stamina Canvas
+  m_Layer: 3
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4764355332803589740}
   - component: {fileID: 7455449511979997485}
   - component: {fileID: 3124751151688062476}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: StaminaGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 9181889704629097409}
   - component: {fileID: 8184703306882606855}
   - component: {fileID: 1460681615299382946}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: StaminaSliderBackBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.95562977, b: 0.06132078, a: 1}
+  m_Color: {r: 0.5764507, g: 0.9622642, b: 0.95454955, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -236,6 +236,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4096200866731812481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5368827746917693575}
+  m_Layer: 3
+  m_Name: ShootPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5368827746917693575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4096200866731812481}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.75, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772056579739113061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4101178993447715473
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +278,7 @@ GameObject:
   - component: {fileID: 677495612602448381}
   - component: {fileID: 7208387772826888742}
   - component: {fileID: 7264561786109769474}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: StaminaSliderBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.97673327, b: 0.8254717, a: 1}
+  m_Color: {r: 0.8235294, g: 1, b: 0.9847909, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -321,14 +352,18 @@ GameObject:
   m_Component:
   - component: {fileID: 3772056579739113061}
   - component: {fileID: 133522636866903712}
+  - component: {fileID: 474186075212759015}
+  - component: {fileID: 2929142099262546389}
+  - component: {fileID: 5768774977337839248}
+  - component: {fileID: 749414084434808243}
+  - component: {fileID: 194731820068506503}
+  - component: {fileID: 2993005616425336540}
+  - component: {fileID: 2326593996277645105}
+  - component: {fileID: 4009435966077953700}
   - component: {fileID: 4188833440682310120}
   - component: {fileID: 3504722191144021216}
-  - component: {fileID: 2326593996277645105}
-  - component: {fileID: 474186075212759015}
-  - component: {fileID: 2993005616425336540}
-  - component: {fileID: 4009435966077953700}
-  m_Layer: 0
-  m_Name: PlayerPrefab
+  m_Layer: 3
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,6 +382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5368827746917693575}
   - {fileID: 253940265258892227}
   - {fileID: 4530520703600926}
   - {fileID: 8700184596027958046}
@@ -404,6 +440,182 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &474186075212759015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff270e574fedb4f8db968c37219c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  speed: 3.7
+  sprintMultiplier: 2
+  jumpForce: 15
+--- !u!114 &2929142099262546389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49df06c4eec9ef4793518a353c8391d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgun: {fileID: 749414084434808243}
+  automat: {fileID: 5768774977337839248}
+  grenade: {fileID: 194731820068506503}
+--- !u!114 &5768774977337839248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3917e15d1db1d954d8417549f3aa7693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 5368827746917693575}
+  bulletPrefab: {fileID: 5047103972810984035, guid: 63435fa803180ce409b12ce322df015e, type: 3}
+  ammo: 30
+  Rate: 0.1
+  pelletCount: 1
+  bulletDestroyTime: 2
+  spreadAngle: 5
+  speedOfFly: 69
+  canShoot: 1
+--- !u!114 &749414084434808243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8290c4198a766e44aaa3337cb7072bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 5368827746917693575}
+  bulletPrefab: {fileID: 2418066738019923405, guid: 95a9ac00066cdaf4bb97bb02111541c3, type: 3}
+  ammo: 8
+  Rate: 1
+  pelletCount: 2
+  bulletDestroyTime: 2
+  spreadAngle: 5
+  speedOfFly: 40
+  canShoot: 1
+--- !u!114 &194731820068506503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f00b38a98d3994e996799788c69ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 5368827746917693575}
+  bulletPrefab: {fileID: 5184390390530086358, guid: 244492a4746d38349af42e32a077d011, type: 3}
+  ammo: 4
+  Rate: 4
+  pelletCount: 0
+  bulletDestroyTime: 2
+  spreadAngle: 5
+  speedOfFly: 5
+  canShoot: 1
+  boom: {fileID: 8685758985424775512, guid: d5a254bc5f47d67439839e361c937bd6, type: 3}
+--- !u!114 &2993005616425336540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ce3af46ea36454aa58dd6d6b331918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 100
+  maxStamina: 100
+  jumpCost: 20
+  hasRegenerated: 1
+  sprinting: 0
+  staminaDrain: 4.9
+  staminaRegen: 13
+  staminaProgressUI: {fileID: 1460681615299382946}
+  sliderCanvasGroup: {fileID: 3124751151688062476}
+--- !u!114 &2326593996277645105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b61559793625344b9a2a1a9a867b0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 253940265258892227}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 576
+  slopeCheckDistance: 1
+  noFriction: {fileID: 6200000, guid: e4550611ad2623c4e9cc2f75a549f6e5, type: 2}
+  fullFriction: {fileID: 6200000, guid: 3b17a181c186921468b7e470056dd802, type: 2}
+  maxSlopeAngle: 45
+  jumpOnSlopeMultiplier: 1.5
+  staminaController: {fileID: 0}
+  canJump: 0
+  canSprint: 0
+  sprinting: 0
+--- !u!70 &4009435966077953700
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617230056730623094}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.022616625, y: -0.2216444}
+  m_Size: {x: 1.048656, y: 1.4467111}
+  m_Direction: 0
 --- !u!50 &4188833440682310120
 Rigidbody2D:
   serializedVersion: 4
@@ -521,104 +733,6 @@ MonoBehaviour:
   m_DefaultActionMap: InGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2326593996277645105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b61559793625344b9a2a1a9a867b0ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheck: {fileID: 253940265258892227}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  slopeCheckDistance: 1
-  noFriction: {fileID: 6200000, guid: e4550611ad2623c4e9cc2f75a549f6e5, type: 2}
-  fullFriction: {fileID: 6200000, guid: 785b37dd3a616c24c98aa701f3c83bd4, type: 2}
-  maxSlopeAngle: 30
-  jumpOnSlopeMultiplier: 1.5
-  staminaController: {fileID: 0}
-  canJump: 0
-  canSprint: 0
-  sprinting: 0
---- !u!114 &474186075212759015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bff270e574fedb4f8db968c37219c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  speed: 5
-  sprintMultiplier: 2
-  jumpForce: 10
-  slideSpeed: 5
---- !u!114 &2993005616425336540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ce3af46ea36454aa58dd6d6b331918, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStamina: 100
-  maxStamina: 100
-  jumpCost: 20
-  hasRegenerated: 1
-  sprinting: 0
-  staminaDrain: 4.9
-  staminaRegen: 13
-  staminaProgressUI: {fileID: 1460681615299382946}
-  sliderCanvasGroup: {fileID: 3124751151688062476}
---- !u!70 &4009435966077953700
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.022616625, y: -0.2216444}
-  m_Size: {x: 1.048656, y: 1.4467111}
-  m_Direction: 0
 --- !u!1 &4939623642147681059
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +744,7 @@ GameObject:
   - component: {fileID: 1999064635596231779}
   - component: {fileID: 7201006499744360055}
   - component: {fileID: 2380809934585884427}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +833,7 @@ GameObject:
   - component: {fileID: 3732789485155229991}
   - component: {fileID: 8335746042930169038}
   - component: {fileID: 6766802767190353216}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player Cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253940265258892227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

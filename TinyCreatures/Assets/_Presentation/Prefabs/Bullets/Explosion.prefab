@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5571861783294450597}
   - component: {fileID: -3155474621967042455}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

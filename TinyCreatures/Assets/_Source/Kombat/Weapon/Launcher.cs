@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class GranataLayuncher : Aweapon
+public class Launcher : Aweapon
 {
     private GameObject newProjectile;
     [SerializeField] private GameObject boom;

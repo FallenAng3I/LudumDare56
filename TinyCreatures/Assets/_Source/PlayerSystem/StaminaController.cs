@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,18 +18,16 @@ public class StaminaController : MonoBehaviour
     [SerializeField] private Image staminaProgressUI = null;
     [SerializeField] private CanvasGroup sliderCanvasGroup = null;
 
-    private PlayerMovement playerController;
+    private Movement playerController;
 
     private void Start()
     {
-        playerController = GetComponent<PlayerMovement>();
+        playerController = GetComponent<Movement>();
     }
 
     private void FixedUpdate()
     {
         sprinting = playerController.sprinting;
-
-        //Sprinting();
 
         if (!sprinting)
         {
@@ -47,8 +43,6 @@ public class StaminaController : MonoBehaviour
                 }
             }
         }
-
-        //Debug.Log("Стамина = " + playerStamina + " спринт? " + sprinting + " можно спринтить? " + playerController.canSprint);
     }
 
     public void Sprinting()

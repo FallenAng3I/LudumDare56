@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2644977804757684606}
   - component: {fileID: -6538493816900597349}
   m_Layer: 0
-  m_Name: drobj
+  m_Name: Fraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

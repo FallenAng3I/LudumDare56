@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ShotGun : Aweapon
+public class Shotgun : Aweapon
 {
     private bool reloading = false;
     
