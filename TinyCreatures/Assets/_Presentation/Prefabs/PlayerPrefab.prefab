@@ -326,7 +326,6 @@ GameObject:
   - component: {fileID: 2326593996277645105}
   - component: {fileID: 474186075212759015}
   - component: {fileID: 2993005616425336540}
-  - component: {fileID: 2068071268391261164}
   - component: {fileID: 4009435966077953700}
   m_Layer: 0
   m_Name: PlayerPrefab
@@ -585,41 +584,6 @@ MonoBehaviour:
   staminaRegen: 13
   staminaProgressUI: {fileID: 1460681615299382946}
   sliderCanvasGroup: {fileID: 3124751151688062476}
---- !u!70 &2068071268391261164
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!70 &4009435966077953700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
