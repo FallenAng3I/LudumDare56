@@ -5,11 +5,20 @@ using Random = UnityEngine.Random;
 
 public class Shotgun : Aweapon
 {
+    [SerializeField] private AmmoCountUI ammoCountUI;
+    [SerializeField] private int maxAmmoCount = 8;
+
     private bool reloading = false;
-    
+
+    public void Awake()
+    {
+        currentAmmo = maxAmmoCount;
+        ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
+    }
+
     public override void Shoot()
     {
-        if (ammo > 0 && reloading == false)
+        if (currentAmmo > 0 && reloading == false)
         {
             if (canShoot)
             {
@@ -26,7 +35,7 @@ public class Shotgun : Aweapon
                     rb.velocity = direction * speedOfFly;
                     StartCoroutine(DestroyAfterDelay(bulletInstance, bulletDestroyTime));
                 }
-                ammo--;
+                currentAmmo--;
                 StartCoroutine(ShootCoroutine());
             }
         }
@@ -37,6 +46,8 @@ public class Shotgun : Aweapon
     }
     private void Update()
     {
+        ammoCountUI.SetAmmoCount(currentAmmo);
+
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -52,7 +63,7 @@ public class Shotgun : Aweapon
     {
         reloading = true;
         yield return new WaitForSeconds(3f);
-        ammo = + 8;
+        currentAmmo = +maxAmmoCount;
         reloading = false;
     }
 }
