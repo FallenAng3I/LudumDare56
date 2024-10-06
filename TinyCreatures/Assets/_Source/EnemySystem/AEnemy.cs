@@ -39,7 +39,7 @@ namespace _Source.EnemySystem
             }
         }
 
-        protected virtual void DetectPlayer()
+        protected virtual void DetectPlayer() // Обнаружение игрока
         {
             Collider2D detectedPlayer = Physics2D.OverlapCircle(transform.position, detectionRadius, playerLayer);
             isPlayerDetected = detectedPlayer != null;
@@ -50,13 +50,13 @@ namespace _Source.EnemySystem
             }
         }
 
-        protected virtual void MoveTowardsPlayer()
+        protected virtual void MoveTowardsPlayer() // Движение в сторону игрока
         {
             Vector3 direction = (player.position - transform.position).normalized;
             transform.position += direction * (speed * Time.deltaTime);
         }
 
-        protected virtual bool IsPlayerInAttackRange()
+        protected virtual bool IsPlayerInAttackRange() 
         {
             return Vector2.Distance(transform.position, player.position) <= attackRange;
         }
@@ -78,6 +78,14 @@ namespace _Source.EnemySystem
             yield return new WaitForSeconds(1f / attackRate);
         }
 
+        protected virtual void Attack() // Метод атаки
+        {
+            if (player.TryGetComponent<Player>(out Player playerComponent))
+            {
+                playerComponent.TakeDamage(damage);
+            }
+        }
+        
         public virtual void TakeDamage(float amount)
         {
             health -= amount;
@@ -85,15 +93,7 @@ namespace _Source.EnemySystem
             {
                 Die();
             }
-        }
-
-        protected virtual void Attack()
-        {
-            if (player.TryGetComponent<Player>(out Player playerComponent))
-            {
-                playerComponent.TakeDamage(damage);
-            }
-        }
+        }        
 
         protected virtual void Die()
         {
