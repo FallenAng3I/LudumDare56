@@ -27,7 +27,7 @@ public class StaminaController : MonoBehaviour
         playerController = GetComponent<PlayerMovement>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         sprinting = playerController.sprinting;
 
@@ -40,7 +40,7 @@ public class StaminaController : MonoBehaviour
             playerController.canSprint = false;
         }
 
-        Sprinting();
+        //Sprinting();
 
         if (!sprinting)
         {
@@ -62,7 +62,7 @@ public class StaminaController : MonoBehaviour
 
     public void Sprinting()
     {
-        if ((playerStamina >= 0) && sprinting)
+        if ((playerStamina >= 0))
         {
             playerStamina -= staminaDrain * Time.deltaTime;
             UpdateStamina(1);

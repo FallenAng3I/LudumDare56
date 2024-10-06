@@ -1,42 +1,48 @@
 using _Source.PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(Player))]
 
 sealed public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement settings")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Player player;
-    [SerializeField] private Rigidbody2D rb;
-
+    
     [HideInInspector] public StaminaController staminaController;
+    [HideInInspector] public bool canJump = true;
+    [HideInInspector] public bool canSprint = true;
+    [HideInInspector] public bool sprinting = false;
+
+    private Player player;
+    private Rigidbody2D rb;
+    private CapsuleCollider2D cc;
 
     private float speed;
     private float defaultSpeed;
     private float speedMultiplier;
     private float jumpForce;
     private float slideSpeed; // Скорость скольжения
+    private float slopeAngle; // Угол наклона поверхности
 
     private bool isFacingRight;
     private float horizontal;
     private bool isSliding; // Флаг скольжения
     private bool isOnSlope; // Флаг нахождения на наклонной поверхности
     private Vector2 slopeNormal; // Нормаль поверхности
-
-    [HideInInspector] public bool canJump = true;
-    [HideInInspector] public bool canSprint = true;
-    [HideInInspector] public bool sprinting = false;
-
+    
     private bool jumpHeld = false;
     private bool hasJumped = false;
 
     private void Awake()
     {
+        cc = GetComponent<CapsuleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
         staminaController = GetComponent<StaminaController>();
+        player = GetComponent<Player>();
         speed = player.speed;
         defaultSpeed = speed;
         speedMultiplier = player.sprintMultiplier;
@@ -47,10 +53,9 @@ sealed public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isOnSlope) // Только если не на наклонной поверхности
-        {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        }
+
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
 
         if (!isFacingRight && horizontal < 0f)
         {
@@ -64,6 +69,8 @@ sealed public class PlayerMovement : MonoBehaviour
         HandleJump();
         HandleSprint();
         HandleSlide();
+
+        Debug.Log(Mathf.Abs(rb.velocity.x) + " " + Mathf.Abs(rb.velocity.y));
     }
 
     private void HandleSlide()
@@ -88,8 +95,6 @@ sealed public class PlayerMovement : MonoBehaviour
         {
             isOnSlope = false;
         }
-
-        Debug.Log("На наклонной? " + isOnSlope + " на земле? " + IsGrounded());
     }
 
     private void HandleJump()
@@ -118,7 +123,10 @@ sealed public class PlayerMovement : MonoBehaviour
             if (staminaController.playerStamina > 0) // Проверяем, есть ли достаточно стамины для спринта
             {
                 speed = defaultSpeed * speedMultiplier; // Спринтуем
-                staminaController.Sprinting(); // Уменьшаем стамину
+                if (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f)
+                {
+                    staminaController.Sprinting(); // Уменьшаем стамину
+                }
             }
             else
             {
