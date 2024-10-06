@@ -58,7 +58,7 @@ namespace _Source.EnemySystem
             
             if (isClimbing)
             {
-                direction.y = 3;
+                direction.y = 5;
                 direction.x = 0;
             }
             else

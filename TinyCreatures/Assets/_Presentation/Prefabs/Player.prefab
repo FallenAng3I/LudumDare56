@@ -482,9 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49df06c4eec9ef4793518a353c8391d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotgun: {fileID: 749414084434808243}
-  automat: {fileID: 5768774977337839248}
-  grenade: {fileID: 194731820068506503}
 --- !u!114 &5768774977337839248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +489,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3917e15d1db1d954d8417549f3aa7693, type: 3}
   m_Name: 
@@ -513,7 +510,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8290c4198a766e44aaa3337cb7072bc, type: 3}
   m_Name: 
@@ -534,7 +531,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4617230056730623094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73f00b38a98d3994e996799788c69ab0, type: 3}
   m_Name: 
@@ -627,8 +624,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022616625, y: -0.2216444}
-  m_Size: {x: 1.048656, y: 1.4467111}
+  m_Offset: {x: -0.022616625, y: -0.1697104}
+  m_Size: {x: 1.048656, y: 1.342843}
   m_Direction: 0
 --- !u!50 &4188833440682310120
 Rigidbody2D:
