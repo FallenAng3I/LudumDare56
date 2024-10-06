@@ -7,7 +7,7 @@ namespace _Source.EnemySystem
     {
         private bool scream;
 
-        protected override IEnumerator AttackCoroutine()
+        public override IEnumerator AttackCoroutine()
         {
             Debug.Log("Я БЕГИТЕ");
             yield return new WaitForSeconds(3f);

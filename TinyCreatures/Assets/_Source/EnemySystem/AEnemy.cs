@@ -26,7 +26,7 @@ namespace _Source.EnemySystem
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
         }
 
-        protected virtual void Update()
+        public virtual void Update()
         {
             DetectPlayer();
             if (isPlayerDetected)
@@ -39,7 +39,7 @@ namespace _Source.EnemySystem
             }
         }
 
-        protected virtual void DetectPlayer() // Обнаружение игрока
+        public virtual void DetectPlayer() // Обнаружение игрока
         {
             Collider2D detectedPlayer = Physics2D.OverlapCircle(transform.position, detectionRadius, playerLayer);
             isPlayerDetected = detectedPlayer != null;
@@ -50,7 +50,7 @@ namespace _Source.EnemySystem
             }
         }
 
-        protected virtual void MoveTowardsPlayer() // Движение к игроку 
+        public virtual void MoveTowardsPlayer() // Движение к игроку 
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
@@ -58,7 +58,7 @@ namespace _Source.EnemySystem
             
             if (isClimbing)
             {
-                direction.y = 1;
+                direction.y = 3;
                 direction.x = 0;
             }
             else
@@ -71,7 +71,7 @@ namespace _Source.EnemySystem
             rb.MovePosition(newPosition);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        public void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
@@ -82,7 +82,7 @@ namespace _Source.EnemySystem
             }
         }
 
-        private void OnCollisionExit2D(Collision2D collision)
+        public void OnCollisionExit2D(Collision2D collision)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
@@ -92,12 +92,12 @@ namespace _Source.EnemySystem
             }
         }
 
-        protected virtual bool IsPlayerInAttackRange()  // Атака по радиусу
+        public virtual bool IsPlayerInAttackRange()  // Атака по радиусу
         {
             return Vector2.Distance(transform.position, player.position) <= attackRange;
         }
 
-        protected virtual bool CanAttack() // Факт атаки
+        public virtual bool CanAttack() // Факт атаки
         {
             if (attackTimer <= 0f)
             {
@@ -108,13 +108,13 @@ namespace _Source.EnemySystem
             return false;
         }
 
-        protected virtual IEnumerator AttackCoroutine() // Кулдаун атаки
+        public virtual IEnumerator AttackCoroutine() // Кулдаун атаки
         {
             Attack();
             yield return new WaitForSeconds(1f / attackRate);
         }
 
-        protected virtual void Attack() // Метод атаки
+        public virtual void Attack() // Метод атаки
         {
             if (player.TryGetComponent(out Player playerComponent))
             {
@@ -131,12 +131,12 @@ namespace _Source.EnemySystem
             }
         }        
 
-        protected virtual void Die() // Умер
+        public virtual void Die() // Умер
         {
             Destroy(gameObject);
         }
         
-        private void OnDrawGizmosSelected() // Гизма 
+        public void OnDrawGizmosSelected() // Гизма 
         {
             Gizmos.color = Color.yellow; // Гизма для обнаружения
             Gizmos.DrawWireSphere(transform.position, detectionRadius);

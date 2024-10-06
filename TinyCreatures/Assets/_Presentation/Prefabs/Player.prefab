@@ -245,6 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5368827746917693575}
+  - component: {fileID: 497850422278209632}
   m_Layer: 3
   m_Name: ShootPivot
   m_TagString: Untagged
@@ -267,6 +268,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3772056579739113061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497850422278209632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4096200866731812481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af54d27f4bc4b1942b497acd59493cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3772056579739113061}
 --- !u!1 &4101178993447715473
 GameObject:
   m_ObjectHideFlags: 0
