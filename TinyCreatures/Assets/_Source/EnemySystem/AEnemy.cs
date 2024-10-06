@@ -80,7 +80,7 @@ namespace _Source.EnemySystem
 
         protected virtual void Attack() // Метод атаки
         {
-            if (player.TryGetComponent<Player>(out Player playerComponent))
+            if (player.TryGetComponent(out Player playerComponent))
             {
                 playerComponent.TakeDamage(damage);
             }

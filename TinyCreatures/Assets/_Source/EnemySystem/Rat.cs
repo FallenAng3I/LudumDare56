@@ -1,12 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 namespace _Source.EnemySystem
 {
     public class Rat : AEnemy
     {
-        protected override void Attack()
+        private bool scream;
+
+        protected override IEnumerator AttackCoroutine()
         {
-            base.Attack();
+            Debug.Log("Я БЕГИТЕ");
+            yield return new WaitForSeconds(3f);
+            Debug.Log("Даю");
+            Attack();
+            yield return new WaitForSeconds(1f / attackRate);
         }
     }
 }
