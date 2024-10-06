@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -6,7 +7,13 @@ public class Launcher : Aweapon
 {
     private GameObject newProjectile;
     [SerializeField] private GameObject boom;
+    [SerializeField] private TextMeshProUGUI ammoCount;
     private Transform boomPlace;
+
+    private void Awake()
+    {
+        ammoCount.text = "1 / 1";
+    }
     public override void Shoot()
     {
         if (canShoot)
@@ -14,12 +21,20 @@ public class Launcher : Aweapon
             newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
             Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
             rb.velocity = firePoint.right * speedOfFly;
+
+            ammoCount.text = "0 / 1";
+
             StartCoroutine(ShootCoroutine());
             StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
         }
     }
     private void Update()
     {
+        if (canShoot)
+        {
+            ammoCount.text = "1 / 1";
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -35,4 +50,3 @@ public class Launcher : Aweapon
         Destroy(exp, 1f);
     }
 }
-
