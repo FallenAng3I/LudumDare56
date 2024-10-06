@@ -7,6 +7,7 @@ public class Launcher : Aweapon
     private GameObject newProjectile;
     [SerializeField] private GameObject boom;
     private Transform boomPlace;
+
     public override void Shoot()
     {
         if (canShoot)
