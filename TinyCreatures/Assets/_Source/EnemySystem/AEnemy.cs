@@ -58,7 +58,7 @@ namespace _Source.EnemySystem
             
             if (isClimbing)
             {
-                direction.y = 1;
+                direction.y = 3;
                 direction.x = 0;
             }
             else
@@ -88,7 +88,7 @@ namespace _Source.EnemySystem
             {
                 isClimbing = false;
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.velocity = new Vector2(rb.velocity.x, -1);
             }
         }
 
