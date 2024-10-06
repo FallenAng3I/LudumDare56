@@ -80,9 +80,8 @@ sealed public class PlayerMovement : MonoBehaviour
         HandleJump();
         HandleSprint();
         SlopeCheck();
-        //HandleSlide();
 
-        Debug.Log(Mathf.Abs(rb.velocity.x) + " " + Mathf.Abs(rb.velocity.y));
+        Debug.Log(canSprint);
     }
 
     private void SlopeCheck()
@@ -118,30 +117,6 @@ sealed public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //private void HandleSlide()
-    //{
-    //    RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.5f, groundLayer);
-
-    //    if (hit && Mathf.Abs(hit.normal.x) > 0.1f) // Проверяем, есть ли наклон
-    //    {
-    //        isOnSlope = true;
-    //        slopeNormal = hit.normal; // Получаем нормаль поверхности
-
-    //        // Рассчитываем направление скольжения по наклону
-    //        Vector2 slideDirection = new Vector2(slopeNormal.x, -slopeNormal.y);
-
-    //        // Скорость скольжения зависит от состояния спринта
-    //        float currentSlideSpeed = sprinting ? slideSpeed * speedMultiplier : slideSpeed;
-
-    //        // Добавляем скольжение
-    //        rb.velocity = new Vector2(slideDirection.x * currentSlideSpeed, rb.velocity.y);
-    //    }
-    //    else
-    //    {
-    //        isOnSlope = false;
-    //    }
-    //}
-
     private void HandleJump()
     {
         // Обработка прыжка, если пробел зажат и игрок на земле
@@ -154,8 +129,6 @@ sealed public class PlayerMovement : MonoBehaviour
                 rb.velocity = newVelocity;
                 newForce.Set(0.0f, jumpForce);
                 rb.AddForce(newForce, ForceMode2D.Impulse);
-                //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                //hasJumped = true;
             }
         }
 
@@ -165,12 +138,33 @@ sealed public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            jumpHeld = true;
+        }
+
+        // Когда пробел отпущен
+        if (context.canceled)
+        {
+            // Останавливаем прыжки
+            jumpHeld = false;
+
+            // Если игрок все еще движется вверх, уменьшаем его скорость (чтобы прыжок остановился плавно)
+            if (rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
+        }
+    }
+
     private void HandleSprint()
     {
         if (sprintHeld && staminaController.playerStamina > 0) // Если кнопка спринта зажата и есть стамина
         {
             // Проверяем, есть ли достаточная скорость, чтобы продолжать спринт (при любых изменениях направления)
-            if (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f)
+            if ((Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f) && canSprint)
             {
                 staminaController.Sprinting(); // Уменьшаем стамину при движении
             }
@@ -179,13 +173,20 @@ sealed public class PlayerMovement : MonoBehaviour
             if (staminaController.playerStamina <= 0)
             {
                 sprinting = false;
+                canSprint = false;
                 speed = defaultSpeed; // Возвращаем обычную скорость
             }
         }
         else if (!sprintHeld || staminaController.playerStamina <= 0) // Если кнопка не зажата или стамина закончилась
         {
             sprinting = false;
+            canSprint = false;
             speed = defaultSpeed; // Возвращаем обычную скорость
+        }
+
+        if (staminaController.playerStamina > 50f) // Например, спринт разрешён при >50% стамины
+        {
+            canSprint = true;
         }
 
         // Дополнительная проверка: если кнопка удерживается и стамина восстановилась до уровня, позволяющего спринт
@@ -208,27 +209,6 @@ sealed public class PlayerMovement : MonoBehaviour
         {
             sprintHeld = false; // Останавливаем спринт при отпускании кнопки
             speed = defaultSpeed; // Возвращаем обычную скорость
-        }
-    }
-
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            jumpHeld = true;
-        }
-
-        // Когда пробел отпущен
-        if (context.canceled)
-        {
-            // Останавливаем прыжки
-            jumpHeld = false;
-
-            // Если игрок все еще движется вверх, уменьшаем его скорость (чтобы прыжок остановился плавно)
-            if (rb.velocity.y > 0f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            }
         }
     }
 

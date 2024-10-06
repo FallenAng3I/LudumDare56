@@ -31,15 +31,6 @@ public class StaminaController : MonoBehaviour
     {
         sprinting = playerController.sprinting;
 
-        if (playerStamina >= maxStamina / 2)
-        {
-            playerController.canSprint = true;
-        }
-        if (playerStamina <= 0f)
-        {
-            playerController.canSprint = false;
-        }
-
         //Sprinting();
 
         if (!sprinting)
@@ -69,7 +60,6 @@ public class StaminaController : MonoBehaviour
 
             if (playerStamina <= 0)
             {
-                playerController.canSprint = false;
                 hasRegenerated = false;
                 sliderCanvasGroup.alpha = 0;
             }
