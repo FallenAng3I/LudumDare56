@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using _Source.PlayerSystem;
@@ -15,12 +14,13 @@ namespace _Source.EnemySystem
         [SerializeField] protected LayerMask playerLayer;   // Слой игрока       
         [SerializeField] protected float attackRate = 1f;   // Количество атак в секунду
 
-        protected Transform player;
-        protected bool isPlayerDetected;
+        private Transform player;
+        private bool isPlayerDetected;
+        private bool isClimbing;
 
         private float attackTimer;
 
-        private void Start()
+        private void Start() // Инициализация, чтоб проходить насквозь игрока и других
         {
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"));
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
@@ -50,18 +50,69 @@ namespace _Source.EnemySystem
             }
         }
 
-        protected virtual void MoveTowardsPlayer() // Движение в сторону игрока
+        protected virtual void MoveTowardsPlayer() // Движение к игроку 
         {
-            Vector3 direction = (player.position - transform.position).normalized;
-            transform.position += direction * (speed * Time.deltaTime);
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+            Vector2 direction = (player.position - transform.position).normalized;
+
+            // Если противник на стене, движение только вверх
+            if (isClimbing)
+            {
+                direction.y = 1; // Двигаемся вверх
+                direction.x = 0; // Отключаем движение по оси X
+            }
+            else
+            {
+                // Двигаемся в сторону игрока по оси X
+                direction.y = 0;
+                direction.x = Mathf.Sign(direction.x); // Обеспечиваем движение в сторону игрока
+            }
+
+            // Обеспечиваем плавное движение
+            Vector2 newPosition = rb.position + direction * (speed * Time.deltaTime);
+            rb.MovePosition(newPosition);
         }
 
-        protected virtual bool IsPlayerInAttackRange() 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            // Проверяем, столкнулся ли противник с объектом на слое Wall
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                isClimbing = true; // Устанавливаем флаг для вертикального движения
+                // Сброс вертикальной скорости, чтобы предотвратить подпрыгивание
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            // Если противник покинул стену, сбрасываем флаг
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                isClimbing = false; // Сбрасываем флаг
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(rb.velocity.x, -1); // Устанавливаем небольшую скорость вниз для спрыгивания
+            }
+        }
+
+        private void FixedUpdate() // Обработка физики
+        {
+            // Если враг не на стене, добавляем гравитацию
+            if (!isClimbing)
+            {
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                rb.velocity += Vector2.down * (Time.fixedDeltaTime * 9.81f); // Гравитация (можно регулировать)
+            }
+        }
+
+        protected virtual bool IsPlayerInAttackRange()  // Атака по радиусу
         {
             return Vector2.Distance(transform.position, player.position) <= attackRange;
         }
 
-        protected virtual bool CanAttack()
+        protected virtual bool CanAttack() // Факт атаки
         {
             if (attackTimer <= 0f)
             {
@@ -72,7 +123,7 @@ namespace _Source.EnemySystem
             return false;
         }
 
-        protected virtual IEnumerator AttackCoroutine()
+        protected virtual IEnumerator AttackCoroutine() // Кулдаун атаки
         {
             Attack();
             yield return new WaitForSeconds(1f / attackRate);
@@ -86,7 +137,7 @@ namespace _Source.EnemySystem
             }
         }
         
-        public virtual void TakeDamage(float amount)
+        public virtual void TakeDamage(float amount) // Получение урона
         {
             health -= amount;
             if (health <= 0)
@@ -95,12 +146,12 @@ namespace _Source.EnemySystem
             }
         }        
 
-        protected virtual void Die()
+        protected virtual void Die() // Умер
         {
             Destroy(gameObject);
         }
         
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmosSelected() // Гизма 
         {
             Gizmos.color = Color.yellow; // Гизма для обнаружения
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
