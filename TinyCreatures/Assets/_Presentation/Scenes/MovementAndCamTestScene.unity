@@ -716,7 +716,7 @@ Transform:
   m_GameObject: {fileID: 1185604309}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.2838088, w: -0.9588809}
-  m_LocalPosition: {x: 6.56, y: 3.31, z: 0}
+  m_LocalPosition: {x: -2.36, y: -0.6, z: 0}
   m_LocalScale: {x: 13.7043, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36919,26 +36919,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4530520703600926, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.00000071525574
-      objectReference: {fileID: 0}
-    - target: {fileID: 4530520703600926, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
-      objectReference: {fileID: 0}
-    - target: {fileID: 504968744957237662, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 10943ec277233cc43b3786cff436e36b, type: 2}
-    - target: {fileID: 2380809934585884427, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-      propertyPath: m_LookaheadSmoothing
-      value: 11.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3732789485155229991, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 5.83
-      objectReference: {fileID: 0}
     - target: {fileID: 3772056579739113061, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.21
@@ -36979,10 +36959,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4188833440682310120, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 10943ec277233cc43b3786cff436e36b, type: 2}
     - target: {fileID: 4617230056730623094, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: m_Name
       value: PlayerPrefab
