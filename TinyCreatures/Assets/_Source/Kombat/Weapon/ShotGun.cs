@@ -1,16 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ShotGun : Aweapon
 {
-    [SerializeField] private int ammo=8;
-    private bool reloading=false;
+    private bool reloading = false;
+    
     public override void Shoot()
     {
-        if (ammo > 0 && reloading==false)
+        if (ammo > 0 && reloading == false)
         {
             if (canShoot)
             {
@@ -24,7 +23,7 @@ public class ShotGun : Aweapon
                     Quaternion spreadRotation = Quaternion.Euler(0, 0, spread);
 
                     Vector2 direction = (spreadRotation * firePoint.right).normalized;
-                    rb.velocity = direction * projectileSpeed;
+                    rb.velocity = direction * speedOfFly;
                     StartCoroutine(DestroyAfterDelay(bulletInstance, bulletDestroyTime));
                 }
                 ammo--;
@@ -53,7 +52,7 @@ public class ShotGun : Aweapon
     {
         reloading = true;
         yield return new WaitForSeconds(3f);
-        ammo = +8;
+        ammo = + 8;
         reloading = false;
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,7 +26,7 @@ namespace _Source.Kombat
                     Quaternion spreadRotation = Quaternion.Euler(0, 0, spread);
 
                     Vector2 direction = (spreadRotation * firePoint.right).normalized;
-                    rb.velocity = direction * projectileSpeed;
+                    rb.velocity = direction * speedOfFly;
                     StartCoroutine(DestroyAfterDelay(bulletInstance, bulletDestroyTime));
                 }
                 StartCoroutine(ShootCoroutine());

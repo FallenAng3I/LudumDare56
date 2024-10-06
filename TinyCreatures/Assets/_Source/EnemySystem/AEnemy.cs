@@ -6,9 +6,9 @@ namespace _Source.EnemySystem
 {
     public abstract class AEnemy : MonoBehaviour
     {
-        [SerializeField] public float health;              // Здоровье          
+        [SerializeField] public float health;               // Здоровье          
         [SerializeField] protected float speed;             // Скорость          
-        [SerializeField] protected int damage;              // Урон               
+        [SerializeField] protected int damage;              // Урон              
         [SerializeField] protected float attackRange;       // Радиус атак       
         [SerializeField] protected float detectionRadius;   // Радиус видимости  
         [SerializeField] protected LayerMask playerLayer;   // Слой игрока       
@@ -55,32 +55,28 @@ namespace _Source.EnemySystem
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
             Vector2 direction = (player.position - transform.position).normalized;
-
-            // Если противник на стене, движение только вверх
+            
             if (isClimbing)
             {
-                direction.y = 1; // Двигаемся вверх
-                direction.x = 0; // Отключаем движение по оси X
+                direction.y = 1;
+                direction.x = 0;
             }
             else
             {
-                // Двигаемся в сторону игрока по оси X
                 direction.y = 0;
-                direction.x = Mathf.Sign(direction.x); // Обеспечиваем движение в сторону игрока
+                direction.x = Mathf.Sign(direction.x);
             }
-
-            // Обеспечиваем плавное движение
+            
             Vector2 newPosition = rb.position + direction * (speed * Time.deltaTime);
             rb.MovePosition(newPosition);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // Проверяем, столкнулся ли противник с объектом на слое Wall
             if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
-                isClimbing = true; // Устанавливаем флаг для вертикального движения
-                // Сброс вертикальной скорости, чтобы предотвратить подпрыгивание
+                isClimbing = true;
+                
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2(rb.velocity.x, 0);
             }
@@ -94,16 +90,6 @@ namespace _Source.EnemySystem
                 isClimbing = false; // Сбрасываем флаг
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2(rb.velocity.x, -1); // Устанавливаем небольшую скорость вниз для спрыгивания
-            }
-        }
-
-        private void FixedUpdate() // Обработка физики
-        {
-            // Если враг не на стене, добавляем гравитацию
-            if (!isClimbing)
-            {
-                Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                rb.velocity += Vector2.down * (Time.fixedDeltaTime * 9.81f); // Гравитация (можно регулировать)
             }
         }
 

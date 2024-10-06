@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GranataLayuncher : Aweapon
 {
@@ -17,7 +13,7 @@ public class GranataLayuncher : Aweapon
         {
             newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
             Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
-            rb.velocity = firePoint.right * projectileSpeed;
+            rb.velocity = firePoint.right * speedOfFly;
             StartCoroutine(ShootCoroutine());
             StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
         }
@@ -30,7 +26,7 @@ public class GranataLayuncher : Aweapon
         }
     }
     
-    private IEnumerator DestroyAfterDelay(GameObject bullet, float delay)
+    private new IEnumerator DestroyAfterDelay(GameObject bullet, float delay)
     {
         yield return new WaitForSeconds(delay);
         Destroy(bullet);

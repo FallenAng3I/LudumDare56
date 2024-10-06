@@ -1,8 +1,4 @@
 using _Source.Kombat;
-using _Source.PlayerSystem;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour

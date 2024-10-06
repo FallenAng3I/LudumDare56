@@ -1,16 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Aweapon : MonoBehaviour , IShooting
 {
-    [SerializeField] protected float spreadAngle = 5f;
-    [SerializeField] protected float bulletDestroyTime = 2f;
-    [SerializeField, Range(1f, 25f)] protected int pelletCount;
-    [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] protected Transform firePoint;
-    [SerializeField] protected float projectileSpeed = 5f;
-    [SerializeField] protected float Rate;
+    [SerializeField] protected Transform firePoint;                 // Точка стрельбы       
+    [SerializeField] protected GameObject bulletPrefab;             // Префаб пули          
+    [SerializeField] protected int ammo;                            // Вместимость магазина 
+    [SerializeField] protected float Rate;                          // Скорострельность     
+    [SerializeField, Range(1f, 25f)] protected int pelletCount;     // Количество пуль      
+    [SerializeField] protected float bulletDestroyTime = 2f;        // Срок жизни пули      
+    [SerializeField] protected float spreadAngle = 5f;              // Разброс ???          
+    [SerializeField] protected float speedOfFly = 5f;               // Скорость полёта пули 
+    
     [SerializeField] protected bool canShoot;
 
     public virtual void Shoot()
