@@ -42,9 +42,10 @@ sealed public class PlayerMovement : MonoBehaviour
         speedMultiplier = player.sprintMultiplier;
         jumpForce = player.jumpForce;
         slideSpeed = player.slideSpeed;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isOnSlope) // “олько если не на наклонной поверхности
         {
