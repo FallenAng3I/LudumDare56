@@ -1,29 +1,27 @@
 using _Source.EnemySystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IGLA : ABullet
 {
     [SerializeField] private float damage = 1;
-    //TODO Сделать для игрока 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D colizeum)
     {
-        Bug bugEnemy = collision.gameObject.GetComponent<Bug>();
+        Bug bugEnemy = colizeum.gameObject.GetComponent<Bug>();
         if (bugEnemy != null)
         {
             bugEnemy.TakeDamage(damage);
             Destroy(gameObject);
         }
 
-        Cockroach cockroach = collision.gameObject.GetComponent<Cockroach>();
+        Cockroach cockroach = colizeum.gameObject.GetComponent<Cockroach>();
         if (cockroach!= null)
         {
             cockroach.TakeDamage(damage);
             Destroy(gameObject);
         }
 
-        Rat rat = collision.gameObject.GetComponent<Rat>();
+        Rat rat = colizeum.gameObject.GetComponent<Rat>();
         if(rat!=null)
         {
             rat.TakeDamage(damage);

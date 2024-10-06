@@ -7,6 +7,7 @@ public class Launcher : Aweapon
     private GameObject newProjectile;
     [SerializeField] private GameObject boom;
     private Transform boomPlace;
+    
     public override void Shoot()
     {
         if (canShoot)
@@ -15,9 +16,10 @@ public class Launcher : Aweapon
             Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
             rb.velocity = firePoint.right * speedOfFly;
             StartCoroutine(ShootCoroutine());
-            StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
+            //StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
         }
     }
+    
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,13 +28,10 @@ public class Launcher : Aweapon
         }
     }
     
-    private new IEnumerator DestroyAfterDelay(GameObject bullet, float delay)
+    public void DetonateGrenade()
     {
-        yield return new WaitForSeconds(delay);
-        Destroy(bullet);
         boomPlace = newProjectile.GetComponent<Transform>();
         GameObject exp = Instantiate(boom, boomPlace.position, quaternion.identity);
         Destroy(exp, 1f);
     }
 }
-
