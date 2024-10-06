@@ -13,11 +13,9 @@ namespace _Source.EnemySystem
         [SerializeField] protected float detectionRadius;   // Радиус видимости  
         [SerializeField] protected LayerMask playerLayer;   // Слой игрока       
         [SerializeField] protected float attackRate = 1f;   // Количество атак в секунду
-
-        private Transform player;
+        protected Transform player;
         private bool isPlayerDetected;
         private bool isClimbing;
-
         private float attackTimer;
 
         private void Start() // Инициализация, чтоб проходить насквозь игрока и других
@@ -38,18 +36,15 @@ namespace _Source.EnemySystem
                 }
             }
         }
-
         public virtual void DetectPlayer() // Обнаружение игрока
         {
             Collider2D detectedPlayer = Physics2D.OverlapCircle(transform.position, detectionRadius, playerLayer);
             isPlayerDetected = detectedPlayer != null;
-            
             if (isPlayerDetected)
             {
                 player = detectedPlayer.transform;
             }
         }
-
         public virtual void MoveTowardsPlayer() // Движение к игроку 
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
