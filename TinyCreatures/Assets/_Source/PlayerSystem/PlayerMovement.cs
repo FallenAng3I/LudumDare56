@@ -11,6 +11,7 @@ sealed public class PlayerMovement : MonoBehaviour
     [Header("Movement settings")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float slopeCheckDistance;
     
     [HideInInspector] public StaminaController staminaController;
     [HideInInspector] public bool canJump = true;
@@ -26,15 +27,22 @@ sealed public class PlayerMovement : MonoBehaviour
     private float speedMultiplier;
     private float jumpForce;
     private float slideSpeed; // Скорость скольжения
-    private float slopeAngle; // Угол наклона поверхности
+    private float slopeDownAngle;
+    private float slopeDownAngleOld;
 
     private bool isFacingRight;
     private float horizontal;
     private bool isSliding; // Флаг скольжения
-    private bool isOnSlope; // Флаг нахождения на наклонной поверхности
+    private bool isOnSlope;
     private Vector2 slopeNormal; // Нормаль поверхности
+
+    private Vector2 newVelocity;
+    private Vector2 newForce;
+    private Vector2 colliderSize;
+    private Vector2 slopeNormalPerp;
     
     private bool jumpHeld = false;
+    private bool sprintHeld = false;
     private bool hasJumped = false;
 
     private void Awake()
@@ -43,11 +51,14 @@ sealed public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         staminaController = GetComponent<StaminaController>();
         player = GetComponent<Player>();
+
+        colliderSize = cc.size;
         speed = player.speed;
         defaultSpeed = speed;
         speedMultiplier = player.sprintMultiplier;
         jumpForce = player.jumpForce;
         slideSpeed = player.slideSpeed;
+
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
@@ -68,34 +79,68 @@ sealed public class PlayerMovement : MonoBehaviour
 
         HandleJump();
         HandleSprint();
-        HandleSlide();
+        SlopeCheck();
+        //HandleSlide();
 
         Debug.Log(Mathf.Abs(rb.velocity.x) + " " + Mathf.Abs(rb.velocity.y));
     }
 
-    private void HandleSlide()
+    private void SlopeCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.5f, groundLayer);
+        Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
+        SlopeCheckVertiacl(checkPos);
+    }
 
-        if (hit && Mathf.Abs(hit.normal.x) > 0.1f) // Проверяем, есть ли наклон
+    private void SlopeCheckHorizontal(Vector2 checkPos)
+    {
+
+    }
+
+    private void SlopeCheckVertiacl(Vector2 checkPos)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, groundLayer);
+
+        if (hit)
         {
-            isOnSlope = true;
-            slopeNormal = hit.normal; // Получаем нормаль поверхности
+            slopeNormalPerp = Vector2.Perpendicular(hit.normal);
 
-            // Рассчитываем направление скольжения по наклону
-            Vector2 slideDirection = new Vector2(slopeNormal.x, -slopeNormal.y);
+            slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-            // Скорость скольжения зависит от состояния спринта
-            float currentSlideSpeed = sprinting ? slideSpeed * speedMultiplier : slideSpeed;
+            if (slopeDownAngle != slopeDownAngleOld)
+            {
+                isOnSlope = true;
+            }
 
-            // Добавляем скольжение
-            rb.velocity = new Vector2(slideDirection.x * currentSlideSpeed, rb.velocity.y);
-        }
-        else
-        {
-            isOnSlope = false;
+            slopeDownAngleOld = slopeDownAngle;
+
+            Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
+            Debug.DrawRay(hit.point, hit.normal, Color.green);
         }
     }
+
+    //private void HandleSlide()
+    //{
+    //    RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.5f, groundLayer);
+
+    //    if (hit && Mathf.Abs(hit.normal.x) > 0.1f) // Проверяем, есть ли наклон
+    //    {
+    //        isOnSlope = true;
+    //        slopeNormal = hit.normal; // Получаем нормаль поверхности
+
+    //        // Рассчитываем направление скольжения по наклону
+    //        Vector2 slideDirection = new Vector2(slopeNormal.x, -slopeNormal.y);
+
+    //        // Скорость скольжения зависит от состояния спринта
+    //        float currentSlideSpeed = sprinting ? slideSpeed * speedMultiplier : slideSpeed;
+
+    //        // Добавляем скольжение
+    //        rb.velocity = new Vector2(slideDirection.x * currentSlideSpeed, rb.velocity.y);
+    //    }
+    //    else
+    //    {
+    //        isOnSlope = false;
+    //    }
+    //}
 
     private void HandleJump()
     {
@@ -105,8 +150,12 @@ sealed public class PlayerMovement : MonoBehaviour
             staminaController.CanJump();  // Проверяем, хватает ли стамины на прыжок
             if (canJump)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                hasJumped = true;
+                newVelocity.Set(0.0f, 0.0f);
+                rb.velocity = newVelocity;
+                newForce.Set(0.0f, jumpForce);
+                rb.AddForce(newForce, ForceMode2D.Impulse);
+                //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                //hasJumped = true;
             }
         }
 
@@ -118,26 +167,32 @@ sealed public class PlayerMovement : MonoBehaviour
 
     private void HandleSprint()
     {
-        if (sprinting)
+        if (sprintHeld && staminaController.playerStamina > 0) // Если кнопка спринта зажата и есть стамина
         {
-            if (staminaController.playerStamina > 0) // Проверяем, есть ли достаточно стамины для спринта
+            // Проверяем, есть ли достаточная скорость, чтобы продолжать спринт (при любых изменениях направления)
+            if (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f)
             {
-                speed = defaultSpeed * speedMultiplier; // Спринтуем
-                if (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f)
-                {
-                    staminaController.Sprinting(); // Уменьшаем стамину
-                }
+                staminaController.Sprinting(); // Уменьшаем стамину при движении
             }
-            else
+
+            // Если спринт активен, но стамины недостаточно
+            if (staminaController.playerStamina <= 0)
             {
-                // Если стамины недостаточно, отключаем спринт
                 sprinting = false;
-                speed = defaultSpeed;
+                speed = defaultSpeed; // Возвращаем обычную скорость
             }
         }
-        else
+        else if (!sprintHeld || staminaController.playerStamina <= 0) // Если кнопка не зажата или стамина закончилась
         {
+            sprinting = false;
             speed = defaultSpeed; // Возвращаем обычную скорость
+        }
+
+        // Дополнительная проверка: если кнопка удерживается и стамина восстановилась до уровня, позволяющего спринт
+        if (sprintHeld && staminaController.playerStamina > 50f) // Например, спринт разрешён при >50% стамины
+        {
+            sprinting = true;
+            speed = defaultSpeed * speedMultiplier; // Возвращаем скорость спринта
         }
     }
 
@@ -145,14 +200,14 @@ sealed public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && canSprint)
         {
-            sprinting = true;
-            speed *= speedMultiplier;
+            sprintHeld = true;
+            speed = defaultSpeed * speedMultiplier; // Активируем спринт
         }
 
         if (context.canceled)
         {
-            sprinting = false;
-            //speed = defaultSpeed;
+            sprintHeld = false; // Останавливаем спринт при отпускании кнопки
+            speed = defaultSpeed; // Возвращаем обычную скорость
         }
     }
 
@@ -179,10 +234,10 @@ sealed public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (isOnSlope)
-        {
-            return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
-        }
+        //if (isOnSlope)
+        //{
+        //    return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
+        //}
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
@@ -196,15 +251,16 @@ sealed public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        //rb.velocity = new
         horizontal = context.ReadValue<Vector2>().x;
 
-        if (isOnSlope && horizontal > 0f && slopeNormal.x > 0f) // Если на наклоне и пытается идти вверх
-        {
-            horizontal = 0; // Запрещаем движение вверх
-        }
-        else if (isOnSlope && horizontal < 0f && slopeNormal.x < 0f) // Аналогично для другой стороны
-        {
-            horizontal = 0;
-        }
+        //if (isOnSlope && horizontal > 0f && slopeNormal.x > 0f) // Если на наклоне и пытается идти вверх
+        //{
+        //    horizontal = 0; // Запрещаем движение вверх
+        //}
+        //else if (isOnSlope && horizontal < 0f && slopeNormal.x < 0f) // Аналогично для другой стороны
+        //{
+        //    horizontal = 0;
+        //}
     }
 }
