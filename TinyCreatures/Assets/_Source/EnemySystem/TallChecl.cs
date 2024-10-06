@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class TallChecl : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject tail;
+    [SerializeField] private GameObject tail;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent(out Player player))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            tail.GetComponent<CapsuleCollider2D>().enabled = true;
+            if (tail != null)
+            {
+                tail.GetComponent<CapsuleCollider2D>().enabled = true;
+            }
         }
     }
 }
