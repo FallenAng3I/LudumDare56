@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class IGLA : ABullet
 {
-    [SerializeField] private float damage = 1;
+    [SerializeField] private float damage = 50;
     
     private void OnTriggerEnter2D(Collider2D collider)
     {
