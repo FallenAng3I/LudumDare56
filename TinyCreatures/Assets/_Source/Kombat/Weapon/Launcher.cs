@@ -11,8 +11,8 @@ public class Launcher : Aweapon
     private Transform boomPlace;
 
     private void Awake()
-    {
-        ammoCount.text = "0 / 1";
+    { 
+//        ammoCount.text = "0 / 1";
     }
     public override void Shoot()
     {
@@ -39,7 +39,7 @@ public class Launcher : Aweapon
     {
         if (canShoot)
         {
-            ammoCount.text = "1 / 1";
+//            ammoCount.text = "1 / 1";
         }
 
         if (Input.GetMouseButtonDown(0))

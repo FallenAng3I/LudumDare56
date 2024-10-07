@@ -7,23 +7,25 @@ public class Shotgun : Aweapon
 {
     [SerializeField] private AmmoCountUI ammoCountUI;
     [SerializeField] private int maxAmmoCount = 8;
+    [SerializeField] private Animator gunAnimator;
+    private bool isAnim=false;
 
     private bool reloading = false;
 
     public void Awake()
     {
-
         currentAmmo = maxAmmoCount;
         ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
-
     }
 
     public override void Shoot()
     {
         if (currentAmmo > 0 && reloading == false)
         {
-            if (canShoot)
+            if (canShoot&& isAnim==false)
             {
+                isAnim = true;
+                gunAnimator.SetTrigger("Shoot");
                 Debug.Log("PAW PAW");
                 for (int i = 0; i < pelletCount; i++)
                 {
@@ -44,6 +46,7 @@ public class Shotgun : Aweapon
         else
         {
             StartCoroutine(Reload());
+            gunAnimator.SetTrigger("ReloadShot");
         }
     }
     private void Update()
@@ -55,17 +58,28 @@ public class Shotgun : Aweapon
             Shoot();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && reloading==false)
         {
             StartCoroutine(Reload());
+            gunAnimator.SetTrigger("ReloadShot");
         }
     }
 
     private IEnumerator Reload()
     {
         reloading = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.8f);
         currentAmmo = +maxAmmoCount;
         reloading = false;
+        gunAnimator.SetTrigger("IdleShot");
     }
+
+    protected override IEnumerator ShootCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        isAnim = false;
+        gunAnimator.SetTrigger("IdleShot");
+        yield return base.ShootCoroutine();
+    }
+
 }

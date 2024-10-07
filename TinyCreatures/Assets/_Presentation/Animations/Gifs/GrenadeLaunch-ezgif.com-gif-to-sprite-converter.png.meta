@@ -1,0 +1,1726 @@
+fileFormatVersion: 2
+guid: 75d1806c138f57842b521beb22a8b3cf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 4514
+        width: 556
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1639cc5ac5905ea41afc87782baba3bc
+      internalID: 2057389086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 4517
+        width: 556
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494ce50505549594ab7d1612986a5d9b
+      internalID: -1518441233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 2967
+        y: 4520
+        width: 553
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031926091d7c7904db14fbdd8198cadc
+      internalID: 1177344456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 4248
+        y: 4523
+        width: 553
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7a32dd4921b9042865fb35f5e5b2e8
+      internalID: 734006271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 5530
+        y: 4523
+        width: 550
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1861182ff15e49c4f96ac19a36e3401e
+      internalID: 480966418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 3801
+        width: 547
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc91aeb220461d41851e7a89d29f2c8
+      internalID: 138532696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_6
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 3801
+        width: 547
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4022dac241146f4991865cc3714e17e
+      internalID: 1684411779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_7
+      rect:
+        serializedVersion: 2
+        x: 2973
+        y: 3804
+        width: 544
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28701b6cdcc45d543ad7ad407e30f47d
+      internalID: -1438546609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_8
+      rect:
+        serializedVersion: 2
+        x: 4255
+        y: 3801
+        width: 540
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46da7b44cd5850428b7f449da72433f
+      internalID: 351229681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_9
+      rect:
+        serializedVersion: 2
+        x: 5536
+        y: 3782
+        width: 541
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ced4457157d9bf41bd15ddd353846bb
+      internalID: -492271484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_10
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 3029
+        width: 538
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567c4edac88672344a4c222b176bd910
+      internalID: 1719919480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_11
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 2998
+        width: 541
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c2f3938f904d84ca2e2ab0de12538e
+      internalID: -2140750128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_12
+      rect:
+        serializedVersion: 2
+        x: 2977
+        y: 2970
+        width: 540
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b150901ee9e4dd040825fa7b37a5286c
+      internalID: -308477158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_13
+      rect:
+        serializedVersion: 2
+        x: 4258
+        y: 2945
+        width: 537
+        height: 497
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c2f1635cca15b478caee8dd12cf17a
+      internalID: 1825327185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_14
+      rect:
+        serializedVersion: 2
+        x: 5539
+        y: 2920
+        width: 538
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15062ab060c9ac542ab105dc2ec8bb8b
+      internalID: 200211131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_15
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2229
+        width: 538
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999eddc14e3981642a00d3a43f4883f9
+      internalID: -1853902416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_16
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 2258
+        width: 541
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dedc2b4a9b778e4d9817c68549f29cf
+      internalID: 103771109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_17
+      rect:
+        serializedVersion: 2
+        x: 2977
+        y: 2292
+        width: 540
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90076b25023f8d4b991947ee5e31959
+      internalID: -1128502674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_18
+      rect:
+        serializedVersion: 2
+        x: 4258
+        y: 2308
+        width: 537
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f705557e7fad4094db3c7c29305c5eb7
+      internalID: -812973450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_19
+      rect:
+        serializedVersion: 2
+        x: 5539
+        y: 2308
+        width: 538
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca9a0c208b88c44280b6a9a8ff470a8
+      internalID: -2073079779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_20
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1586
+        width: 538
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5002807205820ff4aa05abbd5ca79fdb
+      internalID: 1654125902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_21
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 1586
+        width: 538
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9485f42982f443649a1249b36843d58b
+      internalID: -1533063274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_22
+      rect:
+        serializedVersion: 2
+        x: 2977
+        y: 1586
+        width: 540
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2438df302ad59d8499f945e71f64deb2
+      internalID: 545227388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_23
+      rect:
+        serializedVersion: 2
+        x: 4258
+        y: 1586
+        width: 537
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f722301b6e98f14d9a65ea9ec50c728
+      internalID: 203464215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_24
+      rect:
+        serializedVersion: 2
+        x: 5539
+        y: 1586
+        width: 538
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ecb76963df7c642af31028b8fc6c4e
+      internalID: 1375448204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_25
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 883
+        width: 541
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78962a7e20abb746a4e7e7032427a6b
+      internalID: -1720498070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_26
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 901
+        width: 541
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af116d019c77b347ba8f7c8ff101a9c
+      internalID: 343899392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_27
+      rect:
+        serializedVersion: 2
+        x: 2977
+        y: 917
+        width: 543
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea9d8ee9ed5b3647ac792c0b9b11e53
+      internalID: 1266575869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_28
+      rect:
+        serializedVersion: 2
+        x: 4258
+        y: 920
+        width: 543
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a871e74786cbfe741b6a715a2dc6c365
+      internalID: -895431963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_29
+      rect:
+        serializedVersion: 2
+        x: 5539
+        y: 920
+        width: 541
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e425a1f2addb08248821186fd2b530fb
+      internalID: 1430995721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_30
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 202
+        width: 544
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15be9600e2c89c4497d077ff758b222
+      internalID: -1450461436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrenadeLaunch-ezgif.com-gif-to-sprite-converter_31
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 202
+        width: 544
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b07ad7a672597439909971f2e5210a
+      internalID: 1904282688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -2234.375, y: -2201.2896}
+      - {x: -2421.875, y: -1970.0681}
+      - {x: -2453.125, y: -1954.4451}
+      - {x: -2481.25, y: -1954.4451}
+      - {x: -2481.25, y: -1970.0681}
+      - {x: -2728.125, y: -2001.3143}
+      - {x: -2781.25, y: -2038.8096}
+      - {x: -2787.5, y: -2151.2957}
+      - {x: -2787.5, y: -2323.1494}
+      - {x: -2446.875, y: -2323.1494}
+      - {x: -2237.5, y: -2288.7786}
+      - {x: -2234.375, y: -2273.1555}
+    - - {x: -1165.625, y: -1954.4451}
+      - {x: -1206.25, y: -1954.4451}
+      - {x: -1428.125, y: -1988.8158}
+      - {x: -1478.125, y: -2001.3143}
+      - {x: -1506.25, y: -2079.4297}
+      - {x: -1506.25, y: -2310.651}
+      - {x: -1503.125, y: -2323.1494}
+      - {x: -1231.25, y: -2323.1494}
+      - {x: -953.125, y: -2273.1555}
+      - {x: -953.125, y: -2157.545}
+      - {x: -1065.625, y: -1982.5667}
+    - - {x: -2734.375, y: -1641.9839}
+      - {x: -2515.625, y: -1641.9839}
+      - {x: -2237.5, y: -1629.4854}
+      - {x: -2237.5, y: -1235.7842}
+      - {x: -2787.5, y: -1235.7842}
+      - {x: -2787.5, y: -1595.1146}
+    - - {x: -1384.375, y: -1232.6597}
+      - {x: -1506.25, y: -1307.6503}
+      - {x: -1506.25, y: -1623.2362}
+      - {x: -1071.875, y: -1623.2362}
+      - {x: -956.25, y: -1591.99}
+      - {x: -956.25, y: -1457.6317}
+      - {x: -1131.25, y: -1232.6597}
+    - - {x: 118.75, y: -1232.6597}
+      - {x: 78.125, y: -1232.6597}
+      - {x: 78.125, y: -1238.9088}
+      - {x: -162.5, y: -1276.4042}
+      - {x: -228.125, y: -1317.0242}
+      - {x: -228.125, y: -1607.6132}
+      - {x: 325, y: -1607.6132}
+      - {x: 325, y: -1457.6317}
+      - {x: 275, y: -1388.8903}
+    - - {x: 1403.125, y: -1235.7842}
+      - {x: 1193.75, y: -1235.7842}
+      - {x: 1121.875, y: -1248.2827}
+      - {x: 1053.125, y: -1292.0272}
+      - {x: 1053.125, y: -1604.4885}
+      - {x: 1590.625, y: -1604.4885}
+      - {x: 1606.25, y: -1601.3639}
+      - {x: 1606.25, y: -1467.0055}
+      - {x: 1421.875, y: -1248.2827}
+    - - {x: 2715.625, y: -1232.6597}
+      - {x: 2359.375, y: -1232.6597}
+      - {x: 2334.375, y: -1292.0272}
+      - {x: 2334.375, y: -1604.4885}
+      - {x: 2696.875, y: -1604.4885}
+      - {x: 2878.125, y: -1566.9932}
+      - {x: 2884.375, y: -1548.2455}
+      - {x: 2884.375, y: -1435.7594}
+    - - {x: -2481.25, y: -513.9988}
+      - {x: -2484.375, y: -517.12335}
+      - {x: -2478.125, y: -529.6218}
+      - {x: -2765.625, y: -563.99255}
+      - {x: -2787.5, y: -695.22626}
+      - {x: -2787.5, y: -863.9553}
+      - {x: -2781.25, y: -895.2015}
+      - {x: -2721.875, y: -938.94604}
+      - {x: -2603.125, y: -938.94604}
+      - {x: -2240.625, y: -860.83075}
+      - {x: -2240.625, y: -763.9678}
+      - {x: -2428.125, y: -513.9988}
+    - - {x: -1506.25, y: -595.23865}
+      - {x: -1506.25, y: -892.07684}
+      - {x: -1456.25, y: -938.94604}
+      - {x: -1334.375, y: -938.94604}
+      - {x: -959.375, y: -860.83075}
+      - {x: -959.375, y: -782.7154}
+      - {x: -1068.75, y: -585.8648}
+      - {x: -1118.75, y: -513.9988}
+      - {x: -1384.375, y: -513.9988}
+      - {x: -1431.25, y: -532.7464}
+    - - {x: -228.125, y: -513.9988}
+      - {x: -228.125, y: -917.0737}
+      - {x: -190.625, y: -938.94604}
+      - {x: -9.375, y: -938.94604}
+      - {x: 321.875, y: -879.5784}
+      - {x: 321.875, y: -767.09235}
+      - {x: 178.125, y: -513.9988}
+    - - {x: 1053.125, y: -895.2015}
+      - {x: 1084.375, y: -938.94604}
+      - {x: 1356.25, y: -938.94604}
+      - {x: 1600, y: -892.07684}
+      - {x: 1600, y: -698.3509}
+      - {x: 1578.125, y: -645.2325}
+      - {x: 1471.875, y: -513.9988}
+      - {x: 1112.5, y: -513.9988}
+      - {x: 1053.125, y: -542.12024}
+    - - {x: 2675, y: -517.12335}
+      - {x: 2665.625, y: -513.9988}
+      - {x: 2646.875, y: -513.9988}
+      - {x: 2637.5, y: -517.12335}
+      - {x: 2393.75, y: -557.74335}
+      - {x: 2334.375, y: -576.491}
+      - {x: 2334.375, y: -895.2015}
+      - {x: 2390.625, y: -938.94604}
+      - {x: 2481.25, y: -938.94604}
+      - {x: 2875, y: -870.2046}
+      - {x: 2881.25, y: -851.4569}
+      - {x: 2881.25, y: -763.9678}
+      - {x: 2768.75, y: -607.7371}
+    - - {x: -2450, y: 204.66211}
+      - {x: -2484.375, y: 204.66211}
+      - {x: -2481.25, y: 189.03905}
+      - {x: -2712.5, y: 170.29138}
+      - {x: -2771.875, y: 129.67142}
+      - {x: -2787.5, y: 45.30688}
+      - {x: -2787.5, y: -189.03905}
+      - {x: -2718.75, y: -295.27588}
+      - {x: -2312.5, y: -295.27588}
+      - {x: -2240.625, y: -251.5313}
+      - {x: -2240.625, y: 1.5623063}
+      - {x: -2350, y: 132.79604}
+    - - {x: -1509.375, y: 204.66211}
+      - {x: -1509.375, y: -164.04216}
+      - {x: -1487.5, y: -267.15436}
+      - {x: -959.375, y: -267.15436}
+      - {x: -959.375, y: 20.30998}
+      - {x: -1062.5, y: 204.66211}
+    - - {x: 12.5, y: -132.79604}
+      - {x: 312.5, y: -154.66832}
+      - {x: 321.875, y: -154.66832}
+      - {x: 321.875, y: -29.683819}
+      - {x: 150, y: 204.66211}
+      - {x: 84.375, y: 204.66211}
+      - {x: 78.125, y: 189.03905}
+      - {x: -143.75, y: 179.66522}
+      - {x: -228.125, y: 126.54681}
+      - {x: -228.125, y: -151.5437}
+      - {x: -156.25, y: -229.65901}
+      - {x: -125, y: -232.78363}
+      - {x: 31.25, y: -232.78363}
+      - {x: 103.125, y: -185.91444}
+      - {x: 71.875, y: -142.16986}
+      - {x: 18.75, y: -132.79604}
+      - {x: -9.375, y: -132.79604}
+    - - {x: 1546.875, y: 26.559206}
+      - {x: 1421.875, y: 204.66211}
+      - {x: 1362.5, y: 204.66211}
+      - {x: 1359.375, y: 189.03905}
+      - {x: 1137.5, y: 192.16367}
+      - {x: 1053.125, y: 123.422195}
+      - {x: 1053.125, y: -164.04216}
+      - {x: 1125, y: -217.16057}
+      - {x: 1265.625, y: -217.16057}
+      - {x: 1315.625, y: -210.91135}
+      - {x: 1600, y: -151.5437}
+      - {x: 1600, y: -51.556107}
+    - - {x: 2334.375, y: -217.16057}
+      - {x: 2812.5, y: -217.16057}
+      - {x: 2881.25, y: -207.78673}
+      - {x: 2881.25, y: 14.060756}
+      - {x: 2843.75, y: 145.29448}
+      - {x: 2681.25, y: 204.66211}
+      - {x: 2396.875, y: 204.66211}
+      - {x: 2334.375, y: 160.91754}
+    - - {x: 2809.375, y: 395.2635}
+      - {x: 2881.25, y: 429.63422}
+      - {x: 2881.25, y: 842.08307}
+      - {x: 2846.875, y: 926.4476}
+      - {x: 2334.375, y: 926.4476}
+      - {x: 2334.375, y: 395.2635}
+    - - {x: 1525, y: 879.5784}
+      - {x: 1403.125, y: 926.4476}
+      - {x: 1359.375, y: 926.4476}
+      - {x: 1356.25, y: 923.323}
+      - {x: 1096.875, y: 879.5784}
+      - {x: 1059.375, y: 829.5846}
+      - {x: 1053.125, y: 770.217}
+      - {x: 1053.125, y: 573.3664}
+      - {x: 1206.25, y: 420.26038}
+      - {x: 1293.75, y: 420.26038}
+      - {x: 1334.375, y: 432.75882}
+      - {x: 1315.625, y: 492.12646}
+      - {x: 1600, y: 560.8679}
+      - {x: 1600, y: 704.6001}
+    - - {x: -209.375, y: 907.6999}
+      - {x: -228.125, y: 760.84314}
+      - {x: -228.125, y: 567.1172}
+      - {x: -62.5, y: 445.25726}
+      - {x: 62.5, y: 445.25726}
+      - {x: 321.875, y: 523.37256}
+      - {x: 321.875, y: 698.3509}
+      - {x: 234.375, y: 885.82764}
+      - {x: 115.625, y: 926.4476}
+      - {x: 71.875, y: 926.4476}
+    - - {x: -959.375, y: 585.8648}
+      - {x: -959.375, y: 667.10474}
+      - {x: -1137.5, y: 904.5753}
+      - {x: -1171.875, y: 926.4476}
+      - {x: -1218.75, y: 926.4476}
+      - {x: -1428.125, y: 882.703}
+      - {x: -1496.875, y: 851.4569}
+      - {x: -1509.375, y: 704.6001}
+      - {x: -1509.375, y: 573.3664}
+      - {x: -1368.75, y: 495.25107}
+      - {x: -1309.375, y: 473.37878}
+      - {x: -1250, y: 473.37878}
+      - {x: -1193.75, y: 517.12335}
+      - {x: -1196.875, y: 535.87103}
+      - {x: -1050, y: 554.6187}
+    - - {x: -2259.375, y: 582.74023}
+      - {x: -2240.625, y: 588.98944}
+      - {x: -2240.625, y: 663.98016}
+      - {x: -2268.75, y: 810.8369}
+      - {x: -2443.75, y: 926.4476}
+      - {x: -2671.875, y: 926.4476}
+      - {x: -2787.5, y: 873.32916}
+      - {x: -2787.5, y: 563.99255}
+      - {x: -2668.75, y: 504.6249}
+      - {x: -2481.25, y: 504.6249}
+      - {x: -2465.625, y: 579.6156}
+      - {x: -2493.75, y: 604.6125}
+      - {x: -2440.625, y: 595.23865}
+    - - {x: 2678.125, y: 1498.2517}
+      - {x: 2415.625, y: 1632.61}
+      - {x: 2331.25, y: 1557.6193}
+      - {x: 2331.25, y: 1276.4042}
+      - {x: 2387.5, y: 1257.6565}
+      - {x: 2787.5, y: 1257.6565}
+      - {x: 2881.25, y: 1285.7781}
+      - {x: 2881.25, y: 1460.7563}
+      - {x: 2787.5, y: 1629.4854}
+      - {x: 2687.5, y: 1645.1084}
+      - {x: 2637.5, y: 1645.1084}
+    - - {x: -2481.25, y: 1645.1084}
+      - {x: -2481.25, y: 1629.4854}
+      - {x: -2709.375, y: 1626.3608}
+      - {x: -2781.25, y: 1573.2424}
+      - {x: -2793.75, y: 1532.6224}
+      - {x: -2793.75, y: 1282.6534}
+      - {x: -2778.125, y: 1276.4042}
+      - {x: -2296.875, y: 1276.4042}
+      - {x: -2237.5, y: 1298.2765}
+      - {x: -2237.5, y: 1413.8871}
+      - {x: -2368.75, y: 1645.1084}
+    - - {x: -1193.75, y: 1645.1084}
+      - {x: -1200, y: 1632.61}
+      - {x: -1428.125, y: 1607.6132}
+      - {x: -1506.25, y: 1566.9932}
+      - {x: -1512.5, y: 1535.7471}
+      - {x: -1512.5, y: 1276.4042}
+      - {x: -956.25, y: 1276.4042}
+      - {x: -956.25, y: 1407.638}
+      - {x: -1131.25, y: 1645.1084}
+    - - {x: 1390.625, y: 1645.1084}
+      - {x: 1365.625, y: 1645.1084}
+      - {x: 1359.375, y: 1632.61}
+      - {x: 1131.25, y: 1610.7377}
+      - {x: 1065.625, y: 1573.2424}
+      - {x: 1050, y: 1395.1394}
+      - {x: 1050, y: 1276.4042}
+      - {x: 1450, y: 1276.4042}
+      - {x: 1600, y: 1298.2765}
+      - {x: 1600, y: 1401.3887}
+      - {x: 1518.75, y: 1541.9962}
+    - - {x: -112.5, y: 1645.1084}
+      - {x: -231.25, y: 1563.8685}
+      - {x: -231.25, y: 1279.5288}
+      - {x: 146.875, y: 1279.5288}
+      - {x: 321.875, y: 1304.5258}
+      - {x: 321.875, y: 1473.2548}
+      - {x: 137.5, y: 1645.1084}
+    - - {x: -2678.125, y: 2366.894}
+      - {x: -2703.125, y: 2351.2708}
+      - {x: -2781.25, y: 2304.4016}
+      - {x: -2800, y: 2173.168}
+      - {x: -2800, y: 2013.8127}
+      - {x: -2737.5, y: 1988.8158}
+      - {x: -2443.75, y: 1988.8158}
+      - {x: -2234.375, y: 2026.3112}
+      - {x: -2234.375, y: 2166.9187}
+      - {x: -2384.375, y: 2366.894}
+    - - {x: -968.75, y: 2123.174}
+      - {x: -1140.625, y: 2348.1462}
+      - {x: -1175, y: 2366.894}
+      - {x: -1518.75, y: 2366.894}
+      - {x: -1518.75, y: 2023.1865}
+      - {x: -1390.625, y: 1991.9404}
+      - {x: -1143.75, y: 1991.9404}
+      - {x: -953.125, y: 2054.4326}
+      - {x: -953.125, y: 2107.551}
+    - - {x: 262.5, y: 2235.6602}
+      - {x: 150, y: 2366.894}
+      - {x: -131.25, y: 2366.894}
+      - {x: -203.125, y: 2332.5232}
+      - {x: -237.5, y: 2138.797}
+      - {x: -237.5, y: 2026.3112}
+      - {x: -234.375, y: 2010.6881}
+      - {x: -100, y: 1995.0651}
+      - {x: 112.5, y: 1995.0651}
+      - {x: 325, y: 2032.5604}
+      - {x: 325, y: 2110.6758}
+    - - {x: 1456.25, y: 2366.894}
+      - {x: 1143.75, y: 2366.894}
+      - {x: 1043.75, y: 2310.651}
+      - {x: 1043.75, y: 2010.6881}
+      - {x: 1150, y: 1998.1897}
+      - {x: 1431.25, y: 1998.1897}
+      - {x: 1606.25, y: 2023.1865}
+      - {x: 1606.25, y: 2116.925}
+      - {x: 1593.75, y: 2157.545}
+    - - {x: 2371.875, y: 2366.894}
+      - {x: 2356.25, y: 2323.1494}
+      - {x: 2325, y: 2207.5388}
+      - {x: 2325, y: 1998.1897}
+      - {x: 2721.875, y: 1998.1897}
+      - {x: 2884.375, y: 2035.685}
+      - {x: 2884.375, y: 2123.174}
+      - {x: 2737.5, y: 2366.894}
+    physicsShape:
+    - - {x: -2243.75, y: -2207.5388}
+      - {x: -2250, y: -2201.2896}
+      - {x: -2268.75, y: -2201.2896}
+      - {x: -2275, y: -2207.5388}
+      - {x: -2275, y: -2210.6633}
+      - {x: -2359.375, y: -2038.8096}
+      - {x: -2443.75, y: -1957.5697}
+      - {x: -2784.375, y: -1957.5697}
+      - {x: -2784.375, y: -2320.0247}
+      - {x: -2490.625, y: -2320.0247}
+      - {x: -2250, y: -2298.1523}
+      - {x: -2237.5, y: -2263.7817}
+      - {x: -2237.5, y: -2216.9126}
+    - - {x: -1143.75, y: -1957.5697}
+      - {x: -1331.25, y: -1957.5697}
+      - {x: -1503.125, y: -1982.5667}
+      - {x: -1503.125, y: -2320.0247}
+      - {x: -1187.5, y: -2320.0247}
+      - {x: -956.25, y: -2263.7817}
+      - {x: -956.25, y: -2220.037}
+      - {x: -965.625, y: -2185.6665}
+    - - {x: -2309.375, y: -2204.414}
+      - {x: -2306.25, y: -2213.7878}
+      - {x: -2290.625, y: -2213.7878}
+      - {x: -2284.375, y: -2207.5388}
+      - {x: -2287.5, y: -2198.1648}
+      - {x: -2303.125, y: -2198.1648}
+    - - {x: -1028.125, y: -2195.0403}
+      - {x: -1031.25, y: -2201.2896}
+      - {x: -1028.125, y: -2210.6633}
+      - {x: -1003.125, y: -2210.6633}
+      - {x: -996.875, y: -2207.5388}
+      - {x: -996.875, y: -2198.1648}
+      - {x: -1000, y: -2195.0403}
+    - - {x: -2468.75, y: -1238.9088}
+      - {x: -2471.875, y: -1248.2827}
+      - {x: -2731.25, y: -1276.4042}
+      - {x: -2784.375, y: -1329.5226}
+      - {x: -2784.375, y: -1601.3639}
+      - {x: -2721.875, y: -1638.8593}
+      - {x: -2653.125, y: -1638.8593}
+      - {x: -2240.625, y: -1570.1178}
+      - {x: -2240.625, y: -1485.7532}
+      - {x: -2428.125, y: -1238.9088}
+    - - {x: -1246.875, y: -1463.881}
+      - {x: -1237.5, y: -1473.2548}
+      - {x: -1253.125, y: -1460.7563}
+      - {x: -1393.75, y: -1238.9088}
+      - {x: -1446.875, y: -1238.9088}
+      - {x: -1503.125, y: -1326.398}
+      - {x: -1503.125, y: -1620.1116}
+      - {x: -959.375, y: -1620.1116}
+      - {x: -959.375, y: -1460.7563}
+      - {x: -968.75, y: -1417.0117}
+      - {x: -1125, y: -1238.9088}
+      - {x: -1212.5, y: -1238.9088}
+      - {x: -1253.125, y: -1454.5071}
+    - - {x: 137.5, y: -1238.9088}
+      - {x: -221.875, y: -1238.9088}
+      - {x: -221.875, y: -1604.4885}
+      - {x: 162.5, y: -1604.4885}
+      - {x: 318.75, y: -1573.2424}
+      - {x: 318.75, y: -1457.6317}
+      - {x: 293.75, y: -1410.7626}
+    - - {x: 1512.5, y: -1476.3794}
+      - {x: 1509.375, y: -1485.7532}
+      - {x: 1512.5, y: -1495.1271}
+      - {x: 1521.875, y: -1495.1271}
+      - {x: 1531.25, y: -1498.2517}
+      - {x: 1540.625, y: -1498.2517}
+      - {x: 1543.75, y: -1495.1271}
+      - {x: 1550, y: -1501.3763}
+      - {x: 1559.375, y: -1501.3763}
+      - {x: 1568.75, y: -1504.5009}
+      - {x: 1553.125, y: -1501.3763}
+      - {x: 1518.75, y: -1498.2517}
+      - {x: 1509.375, y: -1492.0024}
+      - {x: 1509.375, y: -1482.6287}
+      - {x: 1546.875, y: -1420.1364}
+      - {x: 1481.25, y: -1238.9088}
+      - {x: 1175, y: -1238.9088}
+      - {x: 1087.5, y: -1298.2765}
+      - {x: 1056.25, y: -1338.8965}
+      - {x: 1056.25, y: -1598.2393}
+      - {x: 1059.375, y: -1601.3639}
+      - {x: 1256.25, y: -1601.3639}
+      - {x: 1440.625, y: -1585.7408}
+      - {x: 1600, y: -1554.4948}
+      - {x: 1600, y: -1492.0024}
+      - {x: 1562.5, y: -1479.504}
+    - - {x: 2337.5, y: -1238.9088}
+      - {x: 2337.5, y: -1601.3639}
+      - {x: 2625, y: -1601.3639}
+      - {x: 2881.25, y: -1551.3701}
+      - {x: 2881.25, y: -1445.1333}
+      - {x: 2737.5, y: -1238.9088}
+    - - {x: -2300, y: -1501.3763}
+      - {x: -2328.125, y: -1498.2517}
+      - {x: -2331.25, y: -1501.3763}
+      - {x: -2328.125, y: -1504.5009}
+      - {x: -2300, y: -1510.7501}
+      - {x: -2265.625, y: -1520.1239}
+      - {x: -2262.5, y: -1513.8748}
+    - - {x: -1021.875, y: -1495.1271}
+      - {x: -1046.875, y: -1498.2517}
+      - {x: -1050, y: -1501.3763}
+      - {x: -1000, y: -1516.9994}
+      - {x: -981.25, y: -1510.7501}
+    - - {x: 275, y: -1498.2517}
+      - {x: 231.25, y: -1495.1271}
+      - {x: 228.125, y: -1498.2517}
+      - {x: 250, y: -1507.6255}
+      - {x: 293.75, y: -1510.7501}
+      - {x: 296.875, y: -1507.6255}
+    - - {x: 2806.25, y: -1479.504}
+      - {x: 2803.125, y: -1482.6287}
+      - {x: 2803.125, y: -1498.2517}
+      - {x: 2846.875, y: -1498.2517}
+      - {x: 2850, y: -1492.0024}
+      - {x: 2846.875, y: -1479.504}
+    - - {x: -2434.375, y: -520.248}
+      - {x: -2468.75, y: -520.248}
+      - {x: -2471.875, y: -529.6218}
+      - {x: -2721.875, y: -560.8679}
+      - {x: -2781.25, y: -601.4879}
+      - {x: -2784.375, y: -645.2325}
+      - {x: -2784.375, y: -873.32916}
+      - {x: -2721.875, y: -935.8214}
+      - {x: -2590.625, y: -935.8214}
+      - {x: -2250, y: -863.9553}
+      - {x: -2243.75, y: -845.20764}
+      - {x: -2243.75, y: -760.84314}
+    - - {x: -1168.75, y: -517.12335}
+      - {x: -1296.875, y: -517.12335}
+      - {x: -1493.75, y: -551.4941}
+      - {x: -1503.125, y: -645.2325}
+      - {x: -1503.125, y: -879.5784}
+      - {x: -1440.625, y: -935.8214}
+      - {x: -1312.5, y: -935.8214}
+      - {x: -962.5, y: -870.2046}
+      - {x: -962.5, y: -698.3509}
+      - {x: -1000, y: -617.11096}
+    - - {x: 137.5, y: -520.248}
+      - {x: -203.125, y: -520.248}
+      - {x: -221.875, y: -535.87103}
+      - {x: -221.875, y: -935.8214}
+      - {x: 62.5, y: -935.8214}
+      - {x: 309.375, y: -870.2046}
+      - {x: 318.75, y: -863.9553}
+      - {x: 318.75, y: -782.7154}
+    - - {x: 1056.25, y: -517.12335}
+      - {x: 1056.25, y: -895.2015}
+      - {x: 1134.375, y: -935.8214}
+      - {x: 1162.5, y: -935.8214}
+      - {x: 1596.875, y: -870.2046}
+      - {x: 1596.875, y: -654.6063}
+      - {x: 1553.125, y: -517.12335}
+    - - {x: 2337.5, y: -567.1172}
+      - {x: 2337.5, y: -873.32916}
+      - {x: 2403.125, y: -935.8214}
+      - {x: 2487.5, y: -935.8214}
+      - {x: 2878.125, y: -898.3261}
+      - {x: 2878.125, y: -667.10474}
+      - {x: 2871.875, y: -642.10785}
+      - {x: 2687.5, y: -517.12335}
+      - {x: 2640.625, y: -517.12335}
+      - {x: 2578.125, y: -526.4972}
+    - - {x: -2275, y: -792.08923}
+      - {x: -2318.75, y: -782.7154}
+      - {x: -2328.125, y: -782.7154}
+      - {x: -2318.75, y: -788.96466}
+      - {x: -2296.875, y: -795.21387}
+      - {x: -2268.75, y: -804.5877}
+      - {x: -2262.5, y: -801.4631}
+    - - {x: -1037.5, y: -782.7154}
+      - {x: -1046.875, y: -782.7154}
+      - {x: -1031.25, y: -792.08923}
+      - {x: -987.5, y: -804.5877}
+      - {x: -984.375, y: -801.4631}
+      - {x: -987.5, y: -798.3385}
+    - - {x: 284.375, y: -792.08923}
+      - {x: 240.625, y: -782.7154}
+      - {x: 231.25, y: -782.7154}
+      - {x: 259.375, y: -798.3385}
+      - {x: 293.75, y: -804.5877}
+      - {x: 296.875, y: -801.4631}
+    - - {x: 1512.5, y: -779.5908}
+      - {x: 1512.5, y: -782.7154}
+      - {x: 1528.125, y: -792.08923}
+      - {x: 1571.875, y: -804.5877}
+      - {x: 1575, y: -801.4631}
+      - {x: 1575, y: -795.21387}
+    - - {x: 2809.375, y: -785.84}
+      - {x: 2793.75, y: -782.7154}
+      - {x: 2796.875, y: -785.84}
+      - {x: 2809.375, y: -792.08923}
+      - {x: 2840.625, y: -801.4631}
+      - {x: 2853.125, y: -804.5877}
+      - {x: 2856.25, y: -801.4631}
+      - {x: 2856.25, y: -798.3385}
+    - - {x: -2409.375, y: 201.5375}
+      - {x: -2468.75, y: 201.5375}
+      - {x: -2475, y: 189.03905}
+      - {x: -2706.25, y: 164.04216}
+      - {x: -2778.125, y: 120.29758}
+      - {x: -2784.375, y: 95.30068}
+      - {x: -2784.375, y: -182.78983}
+      - {x: -2650, y: -292.15128}
+      - {x: -2409.375, y: -292.15128}
+      - {x: -2243.75, y: -123.422195}
+      - {x: -2243.75, y: 7.811531}
+    - - {x: -1146.875, y: 201.5375}
+      - {x: -1196.875, y: 201.5375}
+      - {x: -1193.75, y: 192.16367}
+      - {x: -1450, y: 157.79292}
+      - {x: -1493.75, y: 135.92064}
+      - {x: -1503.125, y: 95.30068}
+      - {x: -1503.125, y: -182.78983}
+      - {x: -1375, y: -260.90515}
+      - {x: -1165.625, y: -260.90515}
+      - {x: -962.5, y: -154.66832}
+      - {x: -962.5, y: -57.805332}
+      - {x: -1131.25, y: 198.41289}
+    - - {x: 125, y: 201.5375}
+      - {x: 90.625, y: 201.5375}
+      - {x: 87.5, y: 192.16367}
+      - {x: 115.625, y: 107.79913}
+      - {x: -140.625, y: 189.03905}
+      - {x: -221.875, y: 157.79292}
+      - {x: -221.875, y: -176.5406}
+      - {x: -209.375, y: -229.65901}
+      - {x: 112.5, y: -229.65901}
+      - {x: 318.75, y: -160.91754}
+      - {x: 318.75, y: -54.680717}
+      - {x: 281.25, y: 60.929943}
+    - - {x: 1584.375, y: -139.04526}
+      - {x: 1596.875, y: -132.79604}
+      - {x: 1596.875, y: -54.680717}
+      - {x: 1503.125, y: 201.5375}
+      - {x: 1071.875, y: 201.5375}
+      - {x: 1056.25, y: 4.6869187}
+      - {x: 1056.25, y: -160.91754}
+      - {x: 1118.75, y: -214.03595}
+      - {x: 1303.125, y: -214.03595}
+      - {x: 1381.25, y: -135.92064}
+      - {x: 1353.125, y: -104.674515}
+      - {x: 1415.625, y: -132.79604}
+    - - {x: 2684.375, y: 201.5375}
+      - {x: 2650, y: 201.5375}
+      - {x: 2646.875, y: 192.16367}
+      - {x: 2415.625, y: 182.78983}
+      - {x: 2346.875, y: 129.67142}
+      - {x: 2337.5, y: 7.811531}
+      - {x: 2337.5, y: -157.79292}
+      - {x: 2409.375, y: -214.03595}
+      - {x: 2496.875, y: -214.03595}
+      - {x: 2609.375, y: -195.28828}
+      - {x: 2878.125, y: -132.79604}
+      - {x: 2878.125, y: -39.057655}
+    - - {x: -2281.25, y: -70.30378}
+      - {x: -2328.125, y: -60.929943}
+      - {x: -2334.375, y: -67.17917}
+      - {x: -2284.375, y: -82.80223}
+      - {x: -2268.75, y: -82.80223}
+      - {x: -2265.625, y: -79.67762}
+    - - {x: -1050, y: -60.929943}
+      - {x: -1046.875, y: -67.17917}
+      - {x: -1015.625, y: -76.553}
+      - {x: -993.75, y: -82.80223}
+      - {x: -987.5, y: -82.80223}
+      - {x: -987.5, y: -79.67762}
+      - {x: -993.75, y: -76.553}
+    - - {x: 278.125, y: -70.30378}
+      - {x: 231.25, y: -60.929943}
+      - {x: 228.125, y: -64.05456}
+      - {x: 275, y: -79.67762}
+      - {x: 290.625, y: -82.80223}
+      - {x: 293.75, y: -79.67762}
+    - - {x: 1546.875, y: -67.17917}
+      - {x: 1512.5, y: -60.929943}
+      - {x: 1509.375, y: -64.05456}
+      - {x: 1534.375, y: -76.553}
+      - {x: 1565.625, y: -82.80223}
+      - {x: 1571.875, y: -82.80223}
+      - {x: 1575, y: -79.67762}
+    - - {x: 2806.25, y: -64.05456}
+      - {x: 2787.5, y: -64.05456}
+      - {x: 2803.125, y: -73.42839}
+      - {x: 2853.125, y: -82.80223}
+      - {x: 2846.875, y: -76.553}
+    - - {x: 2337.5, y: 920.19836}
+      - {x: 2337.5, y: 585.8648}
+      - {x: 2378.125, y: 454.6311}
+      - {x: 2443.75, y: 401.5127}
+      - {x: 2712.5, y: 401.5127}
+      - {x: 2878.125, y: 563.99255}
+      - {x: 2878.125, y: 679.6032}
+      - {x: 2750, y: 920.19836}
+    - - {x: 1187.5, y: 920.19836}
+      - {x: 1075, y: 873.32916}
+      - {x: 1056.25, y: 788.96466}
+      - {x: 1056.25, y: 573.3664}
+      - {x: 1200, y: 423.38498}
+      - {x: 1556.25, y: 423.38498}
+      - {x: 1596.875, y: 448.3819}
+      - {x: 1596.875, y: 735.84625}
+      - {x: 1459.375, y: 920.19836}
+    - - {x: 131.25, y: 920.19836}
+      - {x: -75, y: 920.19836}
+      - {x: -225, y: 867.07996}
+      - {x: -225, y: 567.1172}
+      - {x: -53.125, y: 448.3819}
+      - {x: 315.625, y: 448.3819}
+      - {x: 318.75, y: 451.5065}
+      - {x: 318.75, y: 729.597}
+      - {x: 300, y: 788.96466}
+    - - {x: -962.5, y: 667.10474}
+      - {x: -1146.875, y: 920.19836}
+      - {x: -1190.625, y: 920.19836}
+      - {x: -1196.875, y: 904.5753}
+      - {x: -1243.75, y: 710.8493}
+      - {x: -1243.75, y: 701.4755}
+      - {x: -1240.625, y: 695.22626}
+      - {x: -1253.125, y: 707.72473}
+      - {x: -1396.875, y: 888.9523}
+      - {x: -1487.5, y: 892.07684}
+      - {x: -1503.125, y: 798.3385}
+      - {x: -1503.125, y: 567.1172}
+      - {x: -1318.75, y: 476.5034}
+      - {x: -1253.125, y: 476.5034}
+      - {x: -1190.625, y: 520.248}
+      - {x: -1193.75, y: 551.4941}
+      - {x: -1068.75, y: 560.8679}
+      - {x: -962.5, y: 588.98944}
+    - - {x: -2721.875, y: 920.19836}
+      - {x: -2784.375, y: 882.703}
+      - {x: -2784.375, y: 567.1172}
+      - {x: -2621.875, y: 507.7495}
+      - {x: -2509.375, y: 507.7495}
+      - {x: -2459.375, y: 557.74335}
+      - {x: -2243.75, y: 573.3664}
+      - {x: -2243.75, y: 685.8524}
+      - {x: -2359.375, y: 920.19836}
+    - - {x: -2318.75, y: 657.7309}
+      - {x: -2328.125, y: 657.7309}
+      - {x: -2312.5, y: 648.35706}
+      - {x: -2268.75, y: 635.85864}
+      - {x: -2265.625, y: 638.9833}
+      - {x: -2268.75, y: 642.10785}
+    - - {x: -1015.625, y: 654.6063}
+      - {x: -1046.875, y: 657.7309}
+      - {x: -1040.625, y: 651.4817}
+      - {x: -1021.875, y: 645.2325}
+      - {x: -1009.375, y: 642.10785}
+      - {x: -987.5, y: 635.85864}
+      - {x: -978.125, y: 638.9833}
+    - - {x: 240.625, y: 660.8555}
+      - {x: 231.25, y: 657.7309}
+      - {x: 259.375, y: 645.2325}
+      - {x: 271.875, y: 642.10785}
+      - {x: 293.75, y: 638.9833}
+      - {x: 296.875, y: 638.9833}
+    - - {x: 1543.75, y: 654.6063}
+      - {x: 1512.5, y: 657.7309}
+      - {x: 1515.625, y: 654.6063}
+      - {x: 1528.125, y: 648.35706}
+      - {x: 1571.875, y: 635.85864}
+      - {x: 1581.25, y: 638.9833}
+    - - {x: 2825, y: 654.6063}
+      - {x: 2793.75, y: 657.7309}
+      - {x: 2800, y: 651.4817}
+      - {x: 2818.75, y: 645.2325}
+      - {x: 2831.25, y: 642.10785}
+      - {x: 2853.125, y: 635.85864}
+      - {x: 2862.5, y: 638.9833}
+    - - {x: 2565.625, y: 1351.3949}
+      - {x: 2584.375, y: 1354.5195}
+      - {x: 2640.625, y: 1351.3949}
+      - {x: 2690.625, y: 1292.0272}
+      - {x: 2878.125, y: 1301.4011}
+      - {x: 2878.125, y: 1373.2672}
+      - {x: 2871.875, y: 1392.0149}
+      - {x: 2746.875, y: 1570.1178}
+      - {x: 2678.125, y: 1632.61}
+      - {x: 2665.625, y: 1638.8593}
+      - {x: 2653.125, y: 1641.9839}
+      - {x: 2646.875, y: 1632.61}
+      - {x: 2418.75, y: 1641.9839}
+      - {x: 2409.375, y: 1641.9839}
+      - {x: 2334.375, y: 1591.99}
+      - {x: 2334.375, y: 1260.7811}
+      - {x: 2606.25, y: 1260.7811}
+      - {x: 2659.375, y: 1320.1488}
+      - {x: 2634.375, y: 1348.2703}
+      - {x: 2578.125, y: 1351.3949}
+    - - {x: -2403.125, y: 1641.9839}
+      - {x: -2721.875, y: 1641.9839}
+      - {x: -2790.625, y: 1557.6193}
+      - {x: -2790.625, y: 1279.5288}
+      - {x: -2240.625, y: 1279.5288}
+      - {x: -2240.625, y: 1398.264}
+      - {x: -2315.625, y: 1532.6224}
+    - - {x: 1415.625, y: 1641.9839}
+      - {x: 1359.375, y: 1641.9839}
+      - {x: 1356.25, y: 1632.61}
+      - {x: 1078.125, y: 1598.2393}
+      - {x: 1053.125, y: 1501.3763}
+      - {x: 1053.125, y: 1279.5288}
+      - {x: 1490.625, y: 1279.5288}
+      - {x: 1596.875, y: 1298.2765}
+      - {x: 1596.875, y: 1420.1364}
+      - {x: 1575, y: 1485.7532}
+    - - {x: -1509.375, y: 1282.6534}
+      - {x: -959.375, y: 1282.6534}
+      - {x: -959.375, y: 1407.638}
+      - {x: -1137.5, y: 1632.61}
+      - {x: -1146.875, y: 1641.9839}
+      - {x: -1468.75, y: 1641.9839}
+      - {x: -1509.375, y: 1595.1146}
+    - - {x: 131.25, y: 1641.9839}
+      - {x: -6.25, y: 1641.9839}
+      - {x: -153.125, y: 1604.4885}
+      - {x: -206.25, y: 1570.1178}
+      - {x: -228.125, y: 1451.3824}
+      - {x: -228.125, y: 1282.6534}
+      - {x: 318.75, y: 1282.6534}
+      - {x: 318.75, y: 1423.261}
+      - {x: 212.5, y: 1601.3639}
+    - - {x: 1534.375, y: 1373.2672}
+      - {x: 1512.5, y: 1379.5164}
+      - {x: 1509.375, y: 1376.3918}
+      - {x: 1509.375, y: 1373.2672}
+      - {x: 1556.25, y: 1360.7687}
+      - {x: 1571.875, y: 1357.6442}
+      - {x: 1565.625, y: 1363.8933}
+    - - {x: 2837.5, y: 1370.1426}
+      - {x: 2790.625, y: 1379.5164}
+      - {x: 2784.375, y: 1373.2672}
+      - {x: 2853.125, y: 1351.3949}
+      - {x: 2856.25, y: 1357.6442}
+    - - {x: 265.625, y: 1376.3918}
+      - {x: 240.625, y: 1379.5164}
+      - {x: 225, y: 1379.5164}
+      - {x: 271.875, y: 1357.6442}
+      - {x: 293.75, y: 1360.7687}
+      - {x: 296.875, y: 1360.7687}
+    - - {x: -1006.25, y: 1373.2672}
+      - {x: -1050, y: 1382.641}
+      - {x: -1043.75, y: 1376.3918}
+      - {x: -1018.75, y: 1370.1426}
+      - {x: -987.5, y: 1363.8933}
+      - {x: -984.375, y: 1367.018}
+    - - {x: -2296.875, y: 1376.3918}
+      - {x: -2300, y: 1379.5164}
+      - {x: -2309.375, y: 1379.5164}
+      - {x: -2312.5, y: 1382.641}
+      - {x: -2328.125, y: 1382.641}
+      - {x: -2325, y: 1379.5164}
+      - {x: -2321.875, y: 1382.641}
+      - {x: -2315.625, y: 1376.3918}
+      - {x: -2309.375, y: 1376.3918}
+      - {x: -2306.25, y: 1379.5164}
+      - {x: -2300, y: 1373.2672}
+      - {x: -2293.75, y: 1373.2672}
+      - {x: -2290.625, y: 1376.3918}
+      - {x: -2284.375, y: 1370.1426}
+      - {x: -2278.125, y: 1370.1426}
+      - {x: -2275, y: 1373.2672}
+      - {x: -2268.75, y: 1367.018}
+      - {x: -2265.625, y: 1367.018}
+      - {x: -2265.625, y: 1370.1426}
+      - {x: -2271.875, y: 1373.2672}
+    - - {x: -2609.375, y: 2360.6448}
+      - {x: -2765.625, y: 2341.897}
+      - {x: -2793.75, y: 2248.1587}
+      - {x: -2793.75, y: 1991.9404}
+      - {x: -2271.875, y: 1991.9404}
+      - {x: -2237.5, y: 2038.8096}
+      - {x: -2237.5, y: 2148.1711}
+      - {x: -2409.375, y: 2360.6448}
+    - - {x: -1003.125, y: 2123.174}
+      - {x: -1006.25, y: 2113.8003}
+      - {x: -1003.125, y: 2104.4265}
+      - {x: -984.375, y: 2104.4265}
+      - {x: -1015.625, y: 2104.4265}
+      - {x: -1018.75, y: 2107.551}
+      - {x: -1040.625, y: 2198.1648}
+      - {x: -1071.875, y: 2248.1587}
+      - {x: -1140.625, y: 2338.7725}
+      - {x: -1175, y: 2360.6448}
+      - {x: -1190.625, y: 2360.6448}
+      - {x: -1190.625, y: 2348.1462}
+      - {x: -1418.75, y: 2335.6477}
+      - {x: -1506.25, y: 2291.9033}
+      - {x: -1515.625, y: 2201.2896}
+      - {x: -1515.625, y: 2020.062}
+      - {x: -1446.875, y: 1995.0651}
+      - {x: -1071.875, y: 1995.0651}
+      - {x: -956.25, y: 2051.308}
+      - {x: -956.25, y: 2120.0496}
+      - {x: -968.75, y: 2123.174}
+    - - {x: 87.5, y: 2360.6448}
+      - {x: 78.125, y: 2351.2708}
+      - {x: -215.625, y: 2335.6477}
+      - {x: -234.375, y: 2226.2864}
+      - {x: -234.375, y: 1998.1897}
+      - {x: 178.125, y: 1998.1897}
+      - {x: 321.875, y: 2048.1833}
+      - {x: 321.875, y: 2138.797}
+      - {x: 146.875, y: 2360.6448}
+    - - {x: 1578.125, y: 2113.8003}
+      - {x: 1543.75, y: 2104.4265}
+      - {x: 1509.375, y: 2104.4265}
+      - {x: 1528.125, y: 2104.4265}
+      - {x: 1546.875, y: 2107.551}
+      - {x: 1543.75, y: 2207.5388}
+      - {x: 1403.125, y: 2360.6448}
+      - {x: 1368.75, y: 2360.6448}
+      - {x: 1365.625, y: 2357.52}
+      - {x: 1368.75, y: 2348.1462}
+      - {x: 1134.375, y: 2329.3987}
+      - {x: 1046.875, y: 2307.5264}
+      - {x: 1046.875, y: 2001.3143}
+      - {x: 1484.375, y: 2001.3143}
+      - {x: 1600, y: 2016.9374}
+      - {x: 1600, y: 2101.3018}
+      - {x: 1593.75, y: 2113.8003}
+    - - {x: 2871.875, y: 2110.6758}
+      - {x: 2853.125, y: 2116.925}
+      - {x: 2834.375, y: 2104.4265}
+      - {x: 2840.625, y: 2095.0527}
+      - {x: 2850, y: 2095.0527}
+      - {x: 2840.625, y: 2095.0527}
+      - {x: 2790.625, y: 2132.548}
+      - {x: 2803.125, y: 2210.6633}
+      - {x: 2693.75, y: 2341.897}
+      - {x: 2665.625, y: 2360.6448}
+      - {x: 2596.875, y: 2360.6448}
+      - {x: 2359.375, y: 2323.1494}
+      - {x: 2328.125, y: 2298.1523}
+      - {x: 2328.125, y: 2001.3143}
+      - {x: 2637.5, y: 2001.3143}
+      - {x: 2878.125, y: 2032.5604}
+      - {x: 2881.25, y: 2048.1833}
+      - {x: 2881.25, y: 2095.0527}
+    - - {x: 1556.25, y: 2107.551}
+      - {x: 1559.375, y: 2098.1772}
+      - {x: 1568.75, y: 2098.1772}
+      - {x: 1575, y: 2104.4265}
+      - {x: 1571.875, y: 2113.8003}
+      - {x: 1562.5, y: 2113.8003}
+    - - {x: 2809.375, y: 2116.925}
+      - {x: 2803.125, y: 2113.8003}
+      - {x: 2803.125, y: 2098.1772}
+      - {x: 2834.375, y: 2098.1772}
+      - {x: 2837.5, y: 2104.4265}
+      - {x: 2834.375, y: 2116.925}
+    - - {x: 271.875, y: 2110.6758}
+      - {x: 275, y: 2101.3018}
+      - {x: 290.625, y: 2101.3018}
+      - {x: 296.875, y: 2107.551}
+      - {x: 293.75, y: 2116.925}
+      - {x: 278.125, y: 2116.925}
+    - - {x: 1543.75, y: 2101.3018}
+      - {x: 1553.125, y: 2104.4265}
+      - {x: 1553.125, y: 2113.8003}
+      - {x: 1543.75, y: 2116.925}
+      - {x: 1537.5, y: 2110.6758}
+    - - {x: 246.875, y: 2113.8003}
+      - {x: 250, y: 2104.4265}
+      - {x: 265.625, y: 2104.4265}
+      - {x: 271.875, y: 2110.6758}
+      - {x: 268.75, y: 2120.0496}
+      - {x: 253.125, y: 2120.0496}
+    - - {x: -1037.5, y: 2116.925}
+      - {x: -1034.375, y: 2107.551}
+      - {x: -1015.625, y: 2107.551}
+      - {x: -1009.375, y: 2113.8003}
+      - {x: -1012.5, y: 2123.174}
+      - {x: -1031.25, y: 2123.174}
+    - - {x: -2325, y: 2126.2988}
+      - {x: -2328.125, y: 2120.0496}
+      - {x: -2328.125, y: 2110.6758}
+      - {x: -2293.75, y: 2110.6758}
+      - {x: -2290.625, y: 2116.925}
+      - {x: -2293.75, y: 2126.2988}
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_0: 2057389086
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_1: -1518441233
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_10: 1719919480
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_11: -2140750128
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_12: -308477158
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_13: 1825327185
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_14: 200211131
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_15: -1853902416
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_16: 103771109
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_17: -1128502674
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_18: -812973450
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_19: -2073079779
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_2: 1177344456
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_20: 1654125902
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_21: -1533063274
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_22: 545227388
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_23: 203464215
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_24: 1375448204
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_25: -1720498070
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_26: 343899392
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_27: 1266575869
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_28: -895431963
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_29: 1430995721
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_3: 734006271
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_30: -1450461436
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_31: 1904282688
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_4: 480966418
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_5: 138532696
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_6: 1684411779
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_7: -1438546609
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_8: 351229681
+      GrenadeLaunch-ezgif.com-gif-to-sprite-converter_9: -492271484
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
