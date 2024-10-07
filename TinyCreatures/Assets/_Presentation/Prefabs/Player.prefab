@@ -553,7 +553,7 @@ MonoBehaviour:
   pelletCount: 0
   bulletDestroyTime: 2
   spreadAngle: 5
-  speedOfFly: 5
+  speedOfFly: 10
   canShoot: 1
   boom: {fileID: 8685758985424775512, guid: d5a254bc5f47d67439839e361c937bd6, type: 3}
   ammoCount: {fileID: 0}
