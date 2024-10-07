@@ -6,7 +6,7 @@ namespace _Source.PlayerSystem
     public class Player : MonoBehaviour
     {
         [SerializeField] private SwitchPlayerIcon playerIcon;                              
-        [SerializeField] private HealthBar healthBar;                                      
+        //[SerializeField] private HealthBar healthBar;                                      
         [SerializeField] public int maxHealth = 100;            // Здоровье игрока               
         public int currentHealth;                         // Актуальное здоровье игрока    
         public float speed;                               // Скорость игрока               
@@ -20,7 +20,7 @@ namespace _Source.PlayerSystem
         {
             currentHealth = maxHealth;
             playerIcon.SwitchIcon(currentHealth);
-            healthBar.SetMaxHealth(maxHealth);
+            //healthBar.SetMaxHealth(maxHealth);
         }
 
         public void TakeDamage(int damageAmount)
@@ -30,7 +30,7 @@ namespace _Source.PlayerSystem
             
 
             playerIcon.SwitchIcon(currentHealth);
-            healthBar.SetHealth(currentHealth, maxHealth);
+            //healthBar.SetHealth(currentHealth);
 
             if (currentHealth <= 0)
             {

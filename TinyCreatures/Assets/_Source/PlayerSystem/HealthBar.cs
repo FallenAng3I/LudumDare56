@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image healthFillUI = null;
@@ -11,8 +12,9 @@ public class HealthBar : MonoBehaviour
     {
         healthFillUI.fillAmount = 1f;
     }
-    public void SetHealth(int health, int maxHealth)
+    public void SetHealth(int health)
     {
-        healthFillUI.fillAmount = (float)health / maxHealth;
+        healthFillUI.fillAmount = (float)health / 100f;
     }
 }
+*/
