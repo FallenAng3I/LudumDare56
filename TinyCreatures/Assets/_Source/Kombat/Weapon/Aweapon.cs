@@ -5,7 +5,7 @@ public class Aweapon : MonoBehaviour , IShooting
 {
     [SerializeField] protected Transform firePoint;                 // Точка стрельбы       
     [SerializeField] protected GameObject bulletPrefab;             // Префаб пули          
-    [SerializeField] protected int currentAmmo;                            // Вместимость магазина 
+    [SerializeField] public int currentAmmo;                     // Вместимость магазина 
     [SerializeField] protected float Rate;                          // Скорострельность     
     [SerializeField, Range(1f, 25f)] protected int pelletCount;     // Количество пуль      
     [SerializeField] protected float bulletDestroyTime = 2f;        // Срок жизни пули      
