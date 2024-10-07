@@ -10468,6 +10468,14 @@ PrefabInstance:
       propertyPath: playerIcon
       value: 
       objectReference: {fileID: 2107586661}
+    - target: {fileID: 474186075212759015, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: playerSoundVol
+      value: 0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 474186075212759015, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: takeDamageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69600ffcdb33d07468af4c7756e4b961, type: 3}
     - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: firePoint
       value: 
@@ -10650,7 +10658,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 497850422278209632, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7235932723831679710, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3772056579739113061, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       insertIndex: 0
