@@ -11,10 +11,17 @@ public class Launcher : Aweapon
     private Transform boomPlace;
     [SerializeField] private Animator gunAnimator;
     private bool isAnim=false;
-    
+
+    [Header("Launcher sounds")]
+    [SerializeField] private SoundFXManager soundFXManager;
+    [SerializeField] private AudioClip shotSound;
+    [SerializeField] private AudioClip explodeSound;
+    [SerializeField] private AudioClip latchOpenSound;
+    [SerializeField, Range(0f, 1f)] private float launcherVolume = 0.2f;
+
     private void Awake()
-    { 
-        //ammoCount.text = "0 / 1";
+    {
+        ammoCount.text = "0 / 1";
     }
     public override void Shoot()
     {
@@ -41,6 +48,7 @@ public class Launcher : Aweapon
 
     protected override IEnumerator ShootCoroutine()
     {
+        soundFXManager.PlaySoundFXClip(shotSound, transform, launcherVolume);
         gunAnimator.SetTrigger("ReloadGren");
         yield return new WaitForSeconds(1.5f);
         isAnim = false;
@@ -50,11 +58,6 @@ public class Launcher : Aweapon
 
     private void Update()
     {
-        if (canShoot)
-        {
-//            ammoCount.text = "1 / 1";
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -65,6 +68,7 @@ public class Launcher : Aweapon
     {
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
+        soundFXManager.PlaySoundFXClip(explodeSound, transform, launcherVolume/2);
         boomPlace = newProjectile.GetComponent<Transform>();
         GameObject exp = Instantiate(boom, boomPlace.position, quaternion.identity);
         Destroy(exp, 1f);
