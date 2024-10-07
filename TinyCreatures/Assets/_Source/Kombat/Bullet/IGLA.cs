@@ -4,8 +4,8 @@ using UnityEngine;
 public class IGLA : ABullet
 {
     [SerializeField] private float damage = 1;
-    //TODO Сделать для игрока 
-    private void OnTriggerEnter2D(Collider collider)
+    
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         Bug bugEnemy = collider.gameObject.GetComponent<Bug>();
         if (bugEnemy != null)
