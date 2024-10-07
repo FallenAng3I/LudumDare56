@@ -7,6 +7,7 @@ using UnityEngine;
 public class DeleteLeg : MonoBehaviour
 {
     [SerializeField] private GameObject leg;
+    [SerializeField] private GameObject bugs;
 
     private void Start()
     {
@@ -17,5 +18,9 @@ public class DeleteLeg : MonoBehaviour
     {
         yield return new WaitForSeconds(.1f);
         leg.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        bugs.gameObject.SetActive(true);
+        
+        
     }
 }

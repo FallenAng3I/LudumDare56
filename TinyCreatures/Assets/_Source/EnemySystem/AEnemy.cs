@@ -14,7 +14,7 @@ namespace _Source.EnemySystem
         [SerializeField] protected LayerMask playerLayer;   // Слой игрока       
         [SerializeField] protected float attackRate = 1f;   // Количество атак в секунду
         protected Transform player;
-        private bool isPlayerDetected;
+        protected bool isPlayerDetected;
         private bool isClimbing;
         private float attackTimer;
 
