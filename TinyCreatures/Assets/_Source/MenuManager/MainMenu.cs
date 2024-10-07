@@ -7,7 +7,7 @@ namespace _Source.MenuManager
     {
         public void StartGame()
         {
-            SceneManager.LoadScene("Level_1");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level_1");
         }
     }
 }

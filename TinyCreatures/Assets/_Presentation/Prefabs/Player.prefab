@@ -158,9 +158,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
-  speed: 3.7
+  speed: 5
   sprintMultiplier: 2
-  jumpForce: 15
+  jumpForce: 20
   invulnerabilityCD: 3
 --- !u!114 &2929142099262546389
 MonoBehaviour:
@@ -178,6 +178,11 @@ MonoBehaviour:
   shotgun: {fileID: 749414084434808243}
   automat: {fileID: 5768774977337839248}
   grenade: {fileID: 194731820068506503}
+  soundFXManager: {fileID: 0}
+  shotgunPullSound: {fileID: 0}
+  grenadelauncherPullSound: {fileID: 0}
+  flamethrowerPullSound: {fileID: 0}
+  switchSoundVolume: 0.5
 --- !u!114 &5768774977337839248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +227,12 @@ MonoBehaviour:
   canShoot: 1
   ammoCountUI: {fileID: 0}
   maxAmmoCount: 8
+  gunAnimator: {fileID: 0}
+  soundFXManager: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: 43de1e66e5f667246840a86bcba8e644, type: 3}
+  pumpSound: {fileID: 8300000, guid: 9bf3c710bb00a6f4ca14a584ac209c83, type: 3}
+  loadShellSound: {fileID: 8300000, guid: be92d085b5b3c624ba11ef375b615f70, type: 3}
+  shotGunVolume: 0.202
 --- !u!114 &194731820068506503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +256,12 @@ MonoBehaviour:
   canShoot: 1
   boom: {fileID: 8685758985424775512, guid: d5a254bc5f47d67439839e361c937bd6, type: 3}
   ammoCount: {fileID: 0}
+  gunAnimator: {fileID: 0}
+  soundFXManager: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: 43de1e66e5f667246840a86bcba8e644, type: 3}
+  explodeSound: {fileID: 8300000, guid: f20321f36030a8a4d90eb79d82cf48c6, type: 3}
+  latchOpenSound: {fileID: 8300000, guid: b2c958db574b60344b5271da91251645, type: 3}
+  launcherVolume: 0.2
 --- !u!114 &2993005616425336540
 MonoBehaviour:
   m_ObjectHideFlags: 0
