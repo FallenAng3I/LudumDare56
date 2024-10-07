@@ -1350,9 +1350,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 323692224015304191}
     - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: pumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bf3c710bb00a6f4ca14a584ac209c83, type: 3}
+    - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: shotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8280c79cb49d6b24b87d2d30e84f3113, type: 3}
+    - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: ammoCountUI
       value: 
       objectReference: {fileID: 5050539404155932783}
+    - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: shotGunVolume
+      value: 0.196
+      objectReference: {fileID: 0}
+    - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: shotgunDeploy
+      value: 
+      objectReference: {fileID: 8300000, guid: de8c7f7d832c0b042a1116c6d7509853, type: 3}
+    - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: loadShellSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be92d085b5b3c624ba11ef375b615f70, type: 3}
+    - target: {fileID: 749414084434808243, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: soundFXManager
+      value: 
+      objectReference: {fileID: 1939031670}
     - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: soundFXManager
       value: 
@@ -1365,6 +1389,22 @@ PrefabInstance:
       propertyPath: switchImgs
       value: 
       objectReference: {fileID: 8476106114573185835}
+    - target: {fileID: 2929142099262546389, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: soundFXManager
+      value: 
+      objectReference: {fileID: 1939031670}
+    - target: {fileID: 2929142099262546389, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: shotgunPullSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de8c7f7d832c0b042a1116c6d7509853, type: 3}
+    - target: {fileID: 2929142099262546389, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: flamethrowerPullSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e7f8a85492eb9d43992dfe7d64b0da4, type: 3}
+    - target: {fileID: 2929142099262546389, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: grenadelauncherPullSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e4d05c65a7a358f408e61081fb448d0c, type: 3}
     - target: {fileID: 2993005616425336540, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: sliderCanvasGroup
       value: 

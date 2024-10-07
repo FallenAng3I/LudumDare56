@@ -7,6 +7,7 @@ public class Shotgun : Aweapon
 {
     [SerializeField] private AmmoCountUI ammoCountUI;
     [SerializeField] private int maxAmmoCount = 8;
+    //[SerializeField] private Animator gunAnimator;
 
     [Header("Shotgun sounds")]
     [SerializeField] private SoundFXManager soundFXManager;
@@ -14,6 +15,8 @@ public class Shotgun : Aweapon
     [SerializeField] private AudioClip pumpSound;
     [SerializeField] private AudioClip loadShellSound;
     [SerializeField, Range(0f, 1f)] private float shotGunVolume;
+
+    private bool isAnim=false;
 
     private bool reloading = false;
 
@@ -27,9 +30,12 @@ public class Shotgun : Aweapon
     {
         if (currentAmmo > 0 && reloading == false)
         {
-            if (canShoot)
+            if (canShoot&& isAnim==false)
             {
-                soundFXManager.PlaySoundFXClip(shotSound, transform, shotGunVolume);
+                StartCoroutine(ShotSoundCoroutine());
+                isAnim = true;
+                //gunAnimator.SetTrigger("Shoot");
+                Debug.Log("PAW PAW");
                 for (int i = 0; i < pelletCount; i++)
                 {
                     GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
@@ -49,6 +55,7 @@ public class Shotgun : Aweapon
         else
         {
             StartCoroutine(Reload());
+            //gunAnimator.SetTrigger("ReloadShot");
         }
     }
     private void Update()
@@ -60,9 +67,10 @@ public class Shotgun : Aweapon
             Shoot();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && reloading==false)
         {
             StartCoroutine(Reload());
+            //gunAnimator.SetTrigger("ReloadShot");
         }
     }
 
@@ -72,9 +80,25 @@ public class Shotgun : Aweapon
 
         StartCoroutine(HandleReloadSound());
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.8f);
         currentAmmo = +maxAmmoCount;
         reloading = false;
+        //gunAnimator.SetTrigger("IdleShot");
+    }
+
+    protected override IEnumerator ShootCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        isAnim = false;
+        //gunAnimator.SetTrigger("IdleShot");
+        yield return base.ShootCoroutine();
+    }
+
+    private IEnumerator ShotSoundCoroutine()
+    {
+        soundFXManager.PlaySoundFXClip(shotSound, transform, shotGunVolume);
+        yield return new WaitForSeconds(shotSound.length);
+        soundFXManager.PlaySoundFXClip(pumpSound, transform, shotGunVolume);
     }
 
     private IEnumerator HandleReloadSound()
@@ -87,7 +111,7 @@ public class Shotgun : Aweapon
             // Проигрываем звук, если прошёл интервал между ними
             if (elapsedTime >= reloadSoundInterval)
             {
-                soundFXManager.PlaySoundFXClip(loadShellSound, transform, 1.0f);
+                soundFXManager.PlaySoundFXClip(loadShellSound, transform, shotGunVolume);
                 elapsedTime = 0f; // Сбрасываем таймер после проигрывания звука
             }
 
@@ -98,4 +122,5 @@ public class Shotgun : Aweapon
             yield return null;
         }
     }
+
 }

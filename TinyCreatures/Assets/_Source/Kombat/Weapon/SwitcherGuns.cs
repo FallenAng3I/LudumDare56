@@ -8,6 +8,16 @@ public class SwitchGuns : MonoBehaviour
     public Automat automat;
     public Launcher grenade;
 
+    [Header("Switch gun sounds")]
+    [SerializeField] private SoundFXManager soundFXManager;
+    [SerializeField] private AudioClip shotgunPullSound;
+    [SerializeField] private AudioClip grenadelauncherPullSound;
+    [SerializeField] private AudioClip flamethrowerPullSound;
+    [SerializeField] private float switchSoundVolume = 0.5f;
+
+    private enum WeaponType { None, Flamethrower, Shotgun, GrenadeLauncher }
+    private WeaponType currentWeapon = WeaponType.Flamethrower;  // Текущее активное оружие
+
     private void Start()
     {
         shotgun = FindObjectOfType<Shotgun>();
@@ -17,26 +27,58 @@ public class SwitchGuns : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && currentWeapon != WeaponType.Flamethrower)
         {
-            automat.GetComponent<Automat>().enabled = true;
-            shotgun.GetComponent<Shotgun>().enabled = false;
-            grenade.GetComponent<Launcher>().enabled = false;
+            // Переключаем на огнемёт
+            SwitchToWeapon(WeaponType.Flamethrower, flamethrowerPullSound);
             switchImgs.EnableFlamethrowerImg();
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && currentWeapon != WeaponType.Shotgun)
         {
-            automat.GetComponent<Automat>().enabled = false;
-            shotgun.GetComponent<Shotgun>().enabled = true;
-            grenade.GetComponent<Launcher>().enabled = false;
+            // Переключаем на дробовик
+            SwitchToWeapon(WeaponType.Shotgun, shotgunPullSound);
             switchImgs.EnableShotgunImg();
         }
-        if (Input.GetKey(KeyCode.Alpha3))
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && currentWeapon != WeaponType.GrenadeLauncher)
         {
-            automat.GetComponent<Automat>().enabled = false;
-            shotgun.GetComponent<Shotgun>().enabled = false;
-            grenade.GetComponent<Launcher>().enabled = true;
+            // Переключаем на гранатомёт
+            SwitchToWeapon(WeaponType.GrenadeLauncher, grenadelauncherPullSound);
             switchImgs.EnableGrenadelauncherImg();
         }
+    }
+
+    private void SwitchToWeapon(WeaponType newWeapon, AudioClip pullSound)
+    {
+        // Отключаем текущее оружие
+        DisableAllWeapons();
+
+        // Включаем новое оружие в зависимости от типа
+        switch (newWeapon)
+        {
+            case WeaponType.Flamethrower:
+                automat.GetComponent<Automat>().enabled = true;
+                break;
+            case WeaponType.Shotgun:
+                shotgun.GetComponent<Shotgun>().enabled = true;
+                break;
+            case WeaponType.GrenadeLauncher:
+                grenade.GetComponent<Launcher>().enabled = true;
+                break;
+        }
+
+        // Проигрываем звук для выбранного оружия
+        soundFXManager.PlaySoundFXClip(pullSound, transform, switchSoundVolume);
+
+        // Обновляем текущее оружие
+        currentWeapon = newWeapon;
+    }
+
+        private void DisableAllWeapons()
+    {
+        automat.GetComponent<Automat>().enabled = false;
+        shotgun.GetComponent<Shotgun>().enabled = false;
+        grenade.GetComponent<Launcher>().enabled = false;
     }
 }

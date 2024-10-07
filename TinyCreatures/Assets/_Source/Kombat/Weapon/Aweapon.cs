@@ -18,7 +18,7 @@ public class Aweapon : MonoBehaviour , IShooting
     {
         
     }
-    protected IEnumerator ShootCoroutine()
+    protected virtual IEnumerator ShootCoroutine()
     {
         canShoot = false;
         yield return new WaitForSeconds(Rate);
