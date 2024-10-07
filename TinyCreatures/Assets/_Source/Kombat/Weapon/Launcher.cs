@@ -16,8 +16,9 @@ public class Launcher : Aweapon
     }
     public override void Shoot()
     {
-        if (canShoot)
+        if (currentAmmo > 0)
         {
+<<<<<<< Updated upstream
             newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
             Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
             rb.velocity = firePoint.right * speedOfFly;
@@ -26,6 +27,22 @@ public class Launcher : Aweapon
 
             StartCoroutine(ShootCoroutine());
             StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
+=======
+            if (canShoot)
+            {
+                newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
+                Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
+                rb.velocity = firePoint.right * speedOfFly;
+                //ammoCount.text = "0 / 1";
+                currentAmmo--;
+                StartCoroutine(ShootCoroutine());
+                StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
+            }
+        }
+        else
+        {
+            Debug.Log("i need more bullets trdtrdtdr");
+>>>>>>> Stashed changes
         }
     }
     private void Update()
