@@ -82,7 +82,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.56, y: 2.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5368827746917693575}
@@ -204,6 +204,10 @@ MonoBehaviour:
   spreadAngle: 5
   speedOfFly: 69
   canShoot: 1
+  soundFXManager: {fileID: 0}
+  startFireSound: {fileID: 0}
+  loopFireSound: {fileID: 0}
+  flamethrowerVolume: 0
 --- !u!114 &749414084434808243
 MonoBehaviour:
   m_ObjectHideFlags: 0
