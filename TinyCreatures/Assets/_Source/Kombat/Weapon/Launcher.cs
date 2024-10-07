@@ -18,16 +18,6 @@ public class Launcher : Aweapon
     {
         if (currentAmmo > 0)
         {
-<<<<<<< Updated upstream
-            newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
-            Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
-            rb.velocity = firePoint.right * speedOfFly;
-
-            ammoCount.text = "0 / 1";
-
-            StartCoroutine(ShootCoroutine());
-            StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
-=======
             if (canShoot)
             {
                 newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
@@ -42,7 +32,7 @@ public class Launcher : Aweapon
         else
         {
             Debug.Log("i need more bullets trdtrdtdr");
->>>>>>> Stashed changes
+
         }
     }
     private void Update()

@@ -12,13 +12,10 @@ public class Shotgun : Aweapon
 
     public void Awake()
     {
-<<<<<<< Updated upstream
+
         currentAmmo = maxAmmoCount;
         ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
-=======
-  //      currentAmmo = maxAmmoCount;
-  //        ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
->>>>>>> Stashed changes
+
     }
 
     public override void Shoot()
