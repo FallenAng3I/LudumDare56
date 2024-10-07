@@ -84,11 +84,12 @@ sealed public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         FlipPlayer();
-        if (!isFacingRight && horizontal < 0f)
+
+        if (horizontal < 0f && !isFacingRight)
         {
             Flip();
         }
-        else if (isFacingRight && horizontal > 0f)
+        else if (horizontal > 0f && isFacingRight)
         {
             Flip();
         }
@@ -367,14 +368,14 @@ sealed public class Movement : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        
-        if (worldMousePosition.x < transform.position.x && playerModel.localScale.x > 0)
+
+        if (worldMousePosition.x < transform.position.x && !isFacingRight)
         {
-            playerModel.localScale = new Vector3(-Mathf.Abs(playerModel.localScale.x), playerModel.localScale.y, playerModel.localScale.z);
+            Flip();
         }
-        else if (worldMousePosition.x > transform.position.x && playerModel.localScale.x < 0)
+        else if (worldMousePosition.x > transform.position.x && isFacingRight)
         {
-            playerModel.localScale = new Vector3(Mathf.Abs(playerModel.localScale.x), playerModel.localScale.y, playerModel.localScale.z);
+            Flip();
         }
     }
 }

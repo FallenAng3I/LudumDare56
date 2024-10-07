@@ -5,6 +5,8 @@ namespace _Source.PlayerSystem
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private AudioClip takeDamageSound;
+        [SerializeField, Range(0.0f, 1f)] private float playerSoundVol;
         [SerializeField] private SwitchPlayerIcon playerIcon;
         [SerializeField] private HealthBar healthBar;
         [SerializeField] public int maxHealth = 100;            // Здоровье игрока               
@@ -15,9 +17,11 @@ namespace _Source.PlayerSystem
         
         [SerializeField] private float invulnerabilityCD; // Кулдаун неуязвимости          
         private bool isInvulnerable;
+        private SoundFXManager soundFX;
 
         private void Start()
         {
+            soundFX = FindAnyObjectByType<SoundFXManager>();
             currentHealth = maxHealth;
             playerIcon.SwitchIcon(currentHealth);
             healthBar.SetMaxHealth(maxHealth);
@@ -27,7 +31,8 @@ namespace _Source.PlayerSystem
         {
             if (isInvulnerable) return;
             currentHealth -= damageAmount;
-            
+
+            soundFX.PlaySoundFXClip(takeDamageSound, transform, playerSoundVol);
 
             playerIcon.SwitchIcon(currentHealth);
             healthBar.SetHealth(currentHealth, maxHealth);

@@ -6,6 +6,12 @@ namespace _Source.EnemySystem
 {
     public abstract class AEnemy : MonoBehaviour
     {
+        //[Header("Sound settings")]
+        //[SerializeField] private SoundFXManager sfxManager;
+        //[SerializeField] private AudioClip takeDamageClip;
+        //[SerializeField] private AudioClip dieClip;
+        //[SerializeField, Range(.0f, 1f)] private float soundVolume = 0.2f;
+
         [SerializeField] public float health;               // Здоровье          
         [SerializeField] protected float speed;             // Скорость          
         [SerializeField] protected int damage;              // Урон              
@@ -20,6 +26,7 @@ namespace _Source.EnemySystem
 
         private void Start() // Инициализация, чтоб проходить насквозь игрока и других
         {
+            //sfxManager = FindAnyObjectByType<SoundFXManager>();
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"));
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
         }
@@ -119,6 +126,7 @@ namespace _Source.EnemySystem
         
         public virtual void TakeDamage(float amount) // Получение урона
         {
+            //sfxManager.PlaySoundFXClip(takeDamageClip, transform, soundVolume);
             health -= amount;
             if (health <= 0)
             {
@@ -128,6 +136,7 @@ namespace _Source.EnemySystem
 
         public virtual void Die() // Умер
         {
+            //sfxManager.PlaySoundFXClip(dieClip, transform, soundVolume);
             Destroy(gameObject);
         }
         
