@@ -50,7 +50,7 @@ public class Launcher : Aweapon
     {
         soundFXManager.PlaySoundFXClip(shotSound, transform, launcherVolume);
         gunAnimator.SetTrigger("ReloadGren");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(.8f);
         isAnim = false;
         yield return base.ShootCoroutine();
         gunAnimator.SetTrigger("IdleGren");

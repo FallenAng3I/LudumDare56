@@ -16,10 +16,9 @@ public class SwitchGuns : MonoBehaviour
     [SerializeField] private AudioClip grenadelauncherPullSound;
     [SerializeField] private AudioClip flamethrowerPullSound;
     [SerializeField] private float switchSoundVolume = 0.5f;
-
+    
     private enum WeaponType { None, Flamethrower, Shotgun, GrenadeLauncher }
     private WeaponType currentWeapon = WeaponType.Flamethrower;  // ������� �������� ������
-
     private void Start()
     {
         shotgun = FindObjectOfType<Shotgun>();
@@ -27,7 +26,6 @@ public class SwitchGuns : MonoBehaviour
         grenade = FindObjectOfType<Launcher>();
         gunAnimator = FindObjectOfType<Animator>();
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && currentWeapon != WeaponType.Flamethrower)
@@ -37,7 +35,6 @@ public class SwitchGuns : MonoBehaviour
             switchImgs.EnableFlamethrowerImg();
             gunAnimator.SetTrigger("IdleFlame");
         }
-
         if (Input.GetKeyDown(KeyCode.Alpha2) && currentWeapon != WeaponType.Shotgun)
         {
             // ����������� �� ��������
@@ -45,7 +42,6 @@ public class SwitchGuns : MonoBehaviour
             switchImgs.EnableShotgunImg();
             gunAnimator.SetTrigger("IdleShot");
         }
-
         if (Input.GetKeyDown(KeyCode.Alpha3) && currentWeapon != WeaponType.GrenadeLauncher)
         {
             // ����������� �� ���������
