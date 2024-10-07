@@ -7,21 +7,25 @@ namespace _Source.MenuManager
     {
         public static bool PauseGame;
         public GameObject pauseMenu;
+        public GameObject menuBar;
         public GameObject panelSettings;
         
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                if (panelSettings)
+                {
+                    panelSettings.SetActive(false);
+                    menuBar.SetActive(true);
+                }
                 
                 if (PauseGame)
                 {
-                    panelSettings.SetActive(false);
                     Resume();
                 }
                 else
                 {
-                    panelSettings.SetActive(false);
                     Pause();
                 }
             }
