@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField] private Image healthFillUI = null;
 
     public void SetMaxHealth(int health)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        healthFillUI.fillAmount = 1f;
     }
-    public void SetHealth(int health)
+    public void SetHealth(int health, int maxHealth)
     {
-        slider.value = health;
+        healthFillUI.fillAmount = (float)health / maxHealth;
     }
 }

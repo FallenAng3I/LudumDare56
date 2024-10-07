@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine;
+using UnityEngine.UI;
+
 public class StaminaController : MonoBehaviour
 {
     [Header("Параметры стамины")]
@@ -23,6 +26,7 @@ public class StaminaController : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<Movement>();
+        UpdateStamina(1); // Обновляем UI в начале
     }
 
     private void FixedUpdate()
@@ -47,7 +51,7 @@ public class StaminaController : MonoBehaviour
 
     public void Sprinting()
     {
-        if ((playerStamina >= 0))
+        if (playerStamina >= 0)
         {
             playerStamina -= staminaDrain * Time.deltaTime;
             UpdateStamina(1);

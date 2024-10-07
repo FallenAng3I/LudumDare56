@@ -7,7 +7,7 @@ namespace _Source.PlayerSystem
     {
         [SerializeField] private SwitchPlayerIcon playerIcon;                              
         [SerializeField] private HealthBar healthBar;                                      
-        [SerializeField] public int maxHealth;            // Здоровье игрока               
+        [SerializeField] public int maxHealth = 100;            // Здоровье игрока               
         public int currentHealth;                         // Актуальное здоровье игрока    
         public float speed;                               // Скорость игрока               
         public float sprintMultiplier = 1.5f;             // Множитель скорости от спринта 
@@ -30,7 +30,7 @@ namespace _Source.PlayerSystem
             
 
             playerIcon.SwitchIcon(currentHealth);
-            healthBar.SetHealth(currentHealth);
+            healthBar.SetHealth(currentHealth, maxHealth);
 
             if (currentHealth <= 0)
             {
