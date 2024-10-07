@@ -4,9 +4,10 @@ using UnityEngine;
 public class SwitchGuns : MonoBehaviour
 {
     [SerializeField] private SwitchWeaponIcons switchImgs;
-    public Shotgun shotgun;
-    public Automat automat;
-    public Launcher grenade;
+    [SerializeField] private Shotgun shotgun;
+    [SerializeField] private Automat automat;
+    [SerializeField] private Launcher grenade;
+    [SerializeField] private Animator gunAnimator;
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class SwitchGuns : MonoBehaviour
             shotgun.GetComponent<Shotgun>().enabled = false;
             grenade.GetComponent<Launcher>().enabled = false;
             switchImgs.EnableFlamethrowerImg();
+            
+            
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {

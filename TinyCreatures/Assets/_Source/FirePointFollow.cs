@@ -20,8 +20,11 @@ public class FirePointFollow : MonoBehaviour
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-        Vector2 lookDirection = mousePos - player.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        player.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        Vector2 firePointDirection = ((Vector2)mousePos - (Vector2)player.position).normalized;
+
+        transform.position = (Vector2)player.position + firePointDirection * 1.5f;
+
+        transform.right = firePointDirection;
+        
     }
 }
