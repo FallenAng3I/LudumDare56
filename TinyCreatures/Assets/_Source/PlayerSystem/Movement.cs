@@ -38,17 +38,14 @@ sealed public class Movement : MonoBehaviour
     private float defaultSpeed;
     private float speedMultiplier;
     private float jumpForce;
-    private float slideSpeed; // Скорость скольжения
     private float slopeDownAngle;
     private float slopeDownAngleOld;
     private float slopeSideAngle;
 
     private bool isFacingRight;
     private float horizontal;
-    private bool isSliding; // Флаг скольжения
     private bool isOnSlope;
     private bool canWalkOnSlope;
-    private Vector2 slopeNormal; // Нормаль поверхности
     private RaycastHit2D slopeHit;
 
     private Vector2 newVelocity;
@@ -129,6 +126,7 @@ sealed public class Movement : MonoBehaviour
     {
         Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
         SlopeCheckVertical(checkPos);
+        SlopeCheckHorizontal(checkPos);
     }
 
     private void SlopeCheckHorizontal(Vector2 checkPos)
@@ -317,6 +315,7 @@ sealed public class Movement : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
+
     private void HandleStepSound(float stepInterval)
     {
         // Если время с последнего шага больше интервала, проигрываем звук

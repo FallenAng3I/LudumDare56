@@ -8,14 +8,19 @@ public class Shotgun : Aweapon
     [SerializeField] private AmmoCountUI ammoCountUI;
     [SerializeField] private int maxAmmoCount = 8;
 
+    [Header("Shotgun sounds")]
+    [SerializeField] private SoundFXManager soundFXManager;
+    [SerializeField] private AudioClip shotSound;
+    [SerializeField] private AudioClip pumpSound;
+    [SerializeField] private AudioClip loadShellSound;
+    [SerializeField, Range(0f, 1f)] private float shotGunVolume;
+
     private bool reloading = false;
 
     public void Awake()
     {
-
         currentAmmo = maxAmmoCount;
         ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
-
     }
 
     public override void Shoot()
@@ -24,7 +29,7 @@ public class Shotgun : Aweapon
         {
             if (canShoot)
             {
-                Debug.Log("PAW PAW");
+                soundFXManager.PlaySoundFXClip(shotSound, transform, shotGunVolume);
                 for (int i = 0; i < pelletCount; i++)
                 {
                     GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
@@ -64,8 +69,33 @@ public class Shotgun : Aweapon
     private IEnumerator Reload()
     {
         reloading = true;
+
+        StartCoroutine(HandleReloadSound());
+
         yield return new WaitForSeconds(3f);
         currentAmmo = +maxAmmoCount;
         reloading = false;
+    }
+
+    private IEnumerator HandleReloadSound()
+    {
+        float reloadSoundInterval = loadShellSound.length; // Интервал между звуками
+        float elapsedTime = 0f; // Счётчик времени для контроля интервала
+
+        while (reloading) // Пока идёт перезарядка
+        {
+            // Проигрываем звук, если прошёл интервал между ними
+            if (elapsedTime >= reloadSoundInterval)
+            {
+                soundFXManager.PlaySoundFXClip(loadShellSound, transform, 1.0f);
+                elapsedTime = 0f; // Сбрасываем таймер после проигрывания звука
+            }
+
+            // Увеличиваем таймер на время, прошедшее с последнего кадра
+            elapsedTime += Time.deltaTime;
+
+            // Ждём один кадр перед следующим циклом
+            yield return null;
+        }
     }
 }
