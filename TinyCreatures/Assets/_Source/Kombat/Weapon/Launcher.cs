@@ -9,17 +9,21 @@ public class Launcher : Aweapon
     [SerializeField] private GameObject boom;
     [SerializeField] private TextMeshProUGUI ammoCount;
     private Transform boomPlace;
-
+    [SerializeField] private Animator gunAnimator;
+    private bool isAnim=false;
+    
     private void Awake()
     { 
-//        ammoCount.text = "0 / 1";
+        //ammoCount.text = "0 / 1";
     }
     public override void Shoot()
     {
         if (currentAmmo > 0)
         {
-            if (canShoot)
+            if (canShoot && isAnim==false )
             {
+                isAnim = true;
+                gunAnimator.SetTrigger("LaunchGren");
                 newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
                 Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
                 rb.velocity = firePoint.right * speedOfFly;
@@ -32,9 +36,18 @@ public class Launcher : Aweapon
         else
         {
             Debug.Log("i need more bullets trdtrdtdr");
-
         }
     }
+
+    protected override IEnumerator ShootCoroutine()
+    {
+        gunAnimator.SetTrigger("ReloadGren");
+        yield return new WaitForSeconds(1.5f);
+        isAnim = false;
+        yield return base.ShootCoroutine();
+        gunAnimator.SetTrigger("IdleGren");
+    }
+
     private void Update()
     {
         if (canShoot)

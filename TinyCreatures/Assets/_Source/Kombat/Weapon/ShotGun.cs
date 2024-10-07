@@ -9,7 +9,6 @@ public class Shotgun : Aweapon
     [SerializeField] private int maxAmmoCount = 8;
     [SerializeField] private Animator gunAnimator;
     private bool isAnim=false;
-
     private bool reloading = false;
 
     public void Awake()

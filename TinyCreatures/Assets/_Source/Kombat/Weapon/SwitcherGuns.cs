@@ -18,28 +18,31 @@ public class SwitchGuns : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             automat.GetComponent<Automat>().enabled = true;
             shotgun.GetComponent<Shotgun>().enabled = false;
             grenade.GetComponent<Launcher>().enabled = false;
             switchImgs.EnableFlamethrowerImg();
-            
+            gunAnimator.SetTrigger("Flame");
             
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             automat.GetComponent<Automat>().enabled = false;
             shotgun.GetComponent<Shotgun>().enabled = true;
             grenade.GetComponent<Launcher>().enabled = false;
             switchImgs.EnableShotgunImg();
+            gunAnimator.SetTrigger("Shot");
+       
         }
-        if (Input.GetKey(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             automat.GetComponent<Automat>().enabled = false;
             shotgun.GetComponent<Shotgun>().enabled = false;
             grenade.GetComponent<Launcher>().enabled = true;
             switchImgs.EnableGrenadelauncherImg();
+            gunAnimator.SetTrigger("Gren");
         }
     }
 }
