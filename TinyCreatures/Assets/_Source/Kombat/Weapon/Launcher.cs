@@ -12,7 +12,7 @@ public class Launcher : Aweapon
 
     private void Awake()
     {
-        ammoCount.text = "1 / 1";
+        ammoCount.text = "0 / 1";
     }
     public override void Shoot()
     {
@@ -23,7 +23,7 @@ public class Launcher : Aweapon
                 newProjectile = Instantiate(bulletPrefab, firePoint.position, quaternion.identity);
                 Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
                 rb.velocity = firePoint.right * speedOfFly;
-                //ammoCount.text = "0 / 1";
+                ammoCount.text = "0 / 1";
                 currentAmmo--;
                 StartCoroutine(ShootCoroutine());
                 StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
