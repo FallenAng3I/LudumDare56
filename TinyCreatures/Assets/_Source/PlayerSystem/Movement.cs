@@ -17,6 +17,14 @@ sealed public class Movement : MonoBehaviour
     [SerializeField] private float maxSlopeAngle;
     [SerializeField] private float jumpOnSlopeMultiplier = 1.5f;
 
+    [Header("Movement sounds")]
+    [SerializeField] private SoundFXManager soundFXManager;
+    [SerializeField] private AudioClip[] stepSounds;
+    [SerializeField] private float stepSoundVolume = 1f;
+    public float walkStepInterval = 0.5f;
+    public float sprintStepInterval = 0.2f;
+    private float timeSinceLastStep = 0f;
+
     [HideInInspector] public StaminaController staminaController;
     [HideInInspector] public bool canJump = true;
     [HideInInspector] public bool canSprint = true;
@@ -51,6 +59,7 @@ sealed public class Movement : MonoBehaviour
     private bool jumpHeld = false;
     private bool sprintHeld = false;
     private bool hasJumped = false;
+    private bool isMoving = false;
 
     private void Awake()
     {
@@ -77,6 +86,18 @@ sealed public class Movement : MonoBehaviour
         else if (isFacingRight && horizontal > 0f)
         {
             Flip();
+        }
+
+        if (IsGrounded() || isOnSlope)
+        {
+            if (sprinting)
+            {
+                HandleStepSound(sprintStepInterval);
+            }
+            else if (isMoving)
+            {
+                HandleStepSound(walkStepInterval);
+            }
         }
 
         MoveHandle();
@@ -296,9 +317,31 @@ sealed public class Movement : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
+    private void HandleStepSound(float stepInterval)
+    {
+        // Если время с последнего шага больше интервала, проигрываем звук
+        if (timeSinceLastStep >= stepInterval)
+        {
+            soundFXManager.PlayRandomSoundFXClip(stepSounds, transform, stepSoundVolume);
+            timeSinceLastStep = 0f; // Сбрасываем таймер
+        }
+        else
+        {
+            timeSinceLastStep += Time.deltaTime; // Увеличиваем таймер с каждым кадром
+        }
+    }
 
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+
+        if (context.performed)
+        {
+            isMoving = true; // Игрок начал двигаться
+        }
+        else if (context.canceled)
+        {
+            isMoving = false; // Игрок перестал двигаться
+        }
     }
 }

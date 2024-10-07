@@ -1389,6 +1389,34 @@ PrefabInstance:
       propertyPath: ammoCountUI
       value: 
       objectReference: {fileID: 5050539404155932783}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: soundFXManager
+      value: 
+      objectReference: {fileID: 1939031670}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: stepSoundVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: stepSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: stepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1dab63478c8256b4e9f6b0d24be24db9, type: 3}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: stepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 464e5119d9a7d2542808b7575206d4f6, type: 3}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: stepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 43cee761acf8c39429510984fba0e8ae, type: 3}
+    - target: {fileID: 2326593996277645105, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: stepSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: ada14ba3dd68dca4ba0090856d9080f3, type: 3}
     - target: {fileID: 2929142099262546389, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: switchImgs
       value: 
@@ -7159,7 +7187,7 @@ Transform:
   m_GameObject: {fileID: 1144546909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.614821, y: 3.3745165, z: -10}
+  m_LocalPosition: {x: 2.3729978, y: 3.3682637, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12160,6 +12188,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffd6b6c51c21ab54994be365f0d4f279, type: 3}
+--- !u!1 &1939031669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939031671}
+  - component: {fileID: 1939031670}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1939031670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939031669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c4de2a0b88f9848a499b7ed8f041bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 2561021489541992384, guid: 8070ac9cacd3fc342a473492d2d3114f, type: 3}
+--- !u!4 &1939031671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939031669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940781502
 GameObject:
   m_ObjectHideFlags: 0
@@ -14989,6 +15062,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1691572065}
+  - {fileID: 1939031671}
   - {fileID: 2101988002}
   - {fileID: 1220224901}
   - {fileID: 2063592484899153208}
