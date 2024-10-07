@@ -7,12 +7,12 @@ public class Launcher : Aweapon
 {
     private GameObject newProjectile;
     [SerializeField] private GameObject boom;
-    [SerializeField] private TextMeshProUGUI ammoCount;
+    //[SerializeField] private TextMeshProUGUI ammoCount;
     private Transform boomPlace;
 
     private void Awake()
     {
-        ammoCount.text = "1 / 1";
+//        ammoCount.text = "1 / 1";
     }
     public override void Shoot()
     {
@@ -22,7 +22,7 @@ public class Launcher : Aweapon
             Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
             rb.velocity = firePoint.right * speedOfFly;
 
-            ammoCount.text = "0 / 1";
+      //      ammoCount.text = "0 / 1";
 
             StartCoroutine(ShootCoroutine());
             StartCoroutine(DestroyAfterDelay(newProjectile, bulletDestroyTime));
@@ -32,7 +32,7 @@ public class Launcher : Aweapon
     {
         if (canShoot)
         {
-            ammoCount.text = "1 / 1";
+          //  ammoCount.text = "1 / 1";
         }
 
         if (Input.GetMouseButtonDown(0))

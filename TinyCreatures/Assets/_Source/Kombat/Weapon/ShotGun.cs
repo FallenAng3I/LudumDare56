@@ -12,8 +12,8 @@ public class Shotgun : Aweapon
 
     public void Awake()
     {
-        currentAmmo = maxAmmoCount;
-        ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
+  //      currentAmmo = maxAmmoCount;
+//        ammoCountUI.SetMaxAmmoCount(maxAmmoCount);
     }
 
     public override void Shoot()

@@ -50,7 +50,7 @@ namespace _Source.EnemySystem
 
         public  IEnumerator demolish()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
             Debug.Log("начинаю ломать платформу");
             DemolishPlatform();
             coroutineRunning = false;
