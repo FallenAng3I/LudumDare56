@@ -47,4 +47,25 @@ public class SoundFXManager : MonoBehaviour
 
         Destroy(audioSource.gameObject, clipLength);
     }
+
+    public AudioSource PlayLoopingSoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    {
+        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position.normalized, Quaternion.identity);
+        audioSource.clip = audioClip;
+        audioSource.volume = volume;
+        audioSource.loop = true;  // Включаем зацикливание
+        audioSource.Play();
+
+        return audioSource;  // Возвращаем AudioSource, чтобы его можно было остановить
+    }
+
+    // Остановка зацикленного звука
+    public void StopLoopingSoundFXClip(AudioSource audioSource)
+    {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            Destroy(audioSource.gameObject);
+        }
+    }
 }

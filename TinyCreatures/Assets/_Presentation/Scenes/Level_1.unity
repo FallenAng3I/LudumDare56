@@ -1865,6 +1865,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5768774977337839248, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: loopFireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b4dc3466a69e144e8136ac118a9b14d, type: 3}
+    - target: {fileID: 5768774977337839248, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: soundFXManager
+      value: 
+      objectReference: {fileID: 380398306}
+    - target: {fileID: 5768774977337839248, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: startFireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c1e3e67de4847d34d8710c825511e036, type: 3}
+    - target: {fileID: 5768774977337839248, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
+      propertyPath: flamethrowerVolume
+      value: 0.218
+      objectReference: {fileID: 0}
     - target: {fileID: 8006154121641843986, guid: 1c002b2f72e8cbc44a3bb7ef1872f356, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.75
