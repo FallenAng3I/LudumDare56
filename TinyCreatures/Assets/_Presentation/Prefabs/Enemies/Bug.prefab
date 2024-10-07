@@ -51,7 +51,7 @@ MonoBehaviour:
   speed: 25
   damage: 20
   attackRange: 1.4
-  detectionRadius: 10
+  detectionRadius: 15
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
