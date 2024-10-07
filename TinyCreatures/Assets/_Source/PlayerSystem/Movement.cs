@@ -26,6 +26,7 @@ sealed public class Movement : MonoBehaviour
     public float sprintStepInterval = 0.2f;
     private float timeSinceLastStep = 0f;
 
+    [SerializeField] private Transform playerModel;
     [HideInInspector] public StaminaController staminaController;
     [HideInInspector] public bool canJump = true;
     [HideInInspector] public bool canSprint = true;
@@ -36,6 +37,7 @@ sealed public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
 
+    
     private float speed;
     private float defaultSpeed;
     private float speedMultiplier;
@@ -43,6 +45,7 @@ sealed public class Movement : MonoBehaviour
     private float slopeDownAngle;
     private float slopeDownAngleOld;
     private float slopeSideAngle;
+    private Camera mainCamera;
 
     private bool isFacingRight;
     private float horizontal;
@@ -62,6 +65,7 @@ sealed public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        
         cc = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         staminaController = GetComponent<StaminaController>();
@@ -74,10 +78,12 @@ sealed public class Movement : MonoBehaviour
         jumpForce = player.jumpForce;
 
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        mainCamera=Camera.main;
     }
 
     private void FixedUpdate()
     {
+        FlipPlayer();
         if (!isFacingRight && horizontal < 0f)
         {
             Flip();
@@ -354,6 +360,21 @@ sealed public class Movement : MonoBehaviour
         else if (context.canceled)
         {
             isMoving = false; // Игрок перестал двигаться
+        }
+    }
+
+    private void FlipPlayer()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        
+        if (worldMousePosition.x < transform.position.x && playerModel.localScale.x > 0)
+        {
+            playerModel.localScale = new Vector3(-Mathf.Abs(playerModel.localScale.x), playerModel.localScale.y, playerModel.localScale.z);
+        }
+        else if (worldMousePosition.x > transform.position.x && playerModel.localScale.x < 0)
+        {
+            playerModel.localScale = new Vector3(Mathf.Abs(playerModel.localScale.x), playerModel.localScale.y, playerModel.localScale.z);
         }
     }
 }

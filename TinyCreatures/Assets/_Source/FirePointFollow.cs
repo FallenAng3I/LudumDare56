@@ -21,7 +21,6 @@ public class FirePointFollow : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
         Vector2 firePointDirection = ((Vector2)mousePos - (Vector2)player.position).normalized;
-        
         transform.right = firePointDirection;
         
     }
