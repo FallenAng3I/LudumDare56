@@ -4,9 +4,11 @@ using UnityEngine;
 public class SwitchGuns : MonoBehaviour
 {
     [SerializeField] private SwitchWeaponIcons switchImgs;
-    public Shotgun shotgun;
-    public Automat automat;
-    public Launcher grenade;
+    [SerializeField] private Shotgun shotgun;
+    [SerializeField] private Automat automat;
+    [SerializeField] private Launcher grenade;
+    [SerializeField] private Animator gunAnimator;
+    
 
     [Header("Switch gun sounds")]
     [SerializeField] private SoundFXManager soundFXManager;
@@ -16,45 +18,49 @@ public class SwitchGuns : MonoBehaviour
     [SerializeField] private float switchSoundVolume = 0.5f;
 
     private enum WeaponType { None, Flamethrower, Shotgun, GrenadeLauncher }
-    private WeaponType currentWeapon = WeaponType.Flamethrower;  // Текущее активное оружие
+    private WeaponType currentWeapon = WeaponType.Flamethrower;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
     private void Start()
     {
         shotgun = FindObjectOfType<Shotgun>();
         automat = FindObjectOfType<Automat>();
         grenade = FindObjectOfType<Launcher>();
+        gunAnimator = FindObjectOfType<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && currentWeapon != WeaponType.Flamethrower)
         {
-            // Переключаем на огнемёт
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             SwitchToWeapon(WeaponType.Flamethrower, flamethrowerPullSound);
             switchImgs.EnableFlamethrowerImg();
+            gunAnimator.SetTrigger("IdleFlame");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && currentWeapon != WeaponType.Shotgun)
         {
-            // Переключаем на дробовик
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             SwitchToWeapon(WeaponType.Shotgun, shotgunPullSound);
             switchImgs.EnableShotgunImg();
+            gunAnimator.SetTrigger("IdleShot");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && currentWeapon != WeaponType.GrenadeLauncher)
         {
-            // Переключаем на гранатомёт
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             SwitchToWeapon(WeaponType.GrenadeLauncher, grenadelauncherPullSound);
             switchImgs.EnableGrenadelauncherImg();
+            gunAnimator.SetTrigger("IdleGren");
         }
     }
 
     private void SwitchToWeapon(WeaponType newWeapon, AudioClip pullSound)
     {
-        // Отключаем текущее оружие
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         DisableAllWeapons();
 
-        // Включаем новое оружие в зависимости от типа
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
         switch (newWeapon)
         {
             case WeaponType.Flamethrower:
@@ -68,10 +74,10 @@ public class SwitchGuns : MonoBehaviour
                 break;
         }
 
-        // Проигрываем звук для выбранного оружия
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         soundFXManager.PlaySoundFXClip(pullSound, transform, switchSoundVolume);
 
-        // Обновляем текущее оружие
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         currentWeapon = newWeapon;
     }
 

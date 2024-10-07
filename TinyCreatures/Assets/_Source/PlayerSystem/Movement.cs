@@ -1,4 +1,5 @@
 using _Source.PlayerSystem;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,6 +31,7 @@ sealed public class Movement : MonoBehaviour
     [HideInInspector] public bool canSprint = true;
     [HideInInspector] public bool sprinting = false;
 
+    [SerializeField]private Animator moveAnim;
     private Player player;
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
@@ -96,6 +98,15 @@ sealed public class Movement : MonoBehaviour
                 HandleStepSound(walkStepInterval);
             }
         }
+        if (isMoving == false)
+        {
+            moveAnim.SetTrigger("IdleMove");
+        }
+        if (isMoving)
+        {
+            moveAnim.SetTrigger("Move");
+        }
+        Debug.Log(isMoving);
 
         MoveHandle();
         HandleJump();
@@ -109,11 +120,13 @@ sealed public class Movement : MonoBehaviour
         {
             newVelocity.Set(speed * horizontal, 0.0f);
             rb.velocity = newVelocity;
+           
         }
         else if (IsGrounded() && isOnSlope && canWalkOnSlope)
         {
             newVelocity.Set(speed * slopeNormalPerp.x * -horizontal, speed * slopeNormalPerp.y * -horizontal);
             rb.velocity = newVelocity;
+           
         }
         else if (!IsGrounded())
         {
@@ -255,6 +268,7 @@ sealed public class Movement : MonoBehaviour
             if ((Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f) && canSprint)
             {
                 staminaController.Sprinting();
+                moveAnim.SetTrigger("Move");
             }
             
             if (staminaController.playerStamina <= 0)
