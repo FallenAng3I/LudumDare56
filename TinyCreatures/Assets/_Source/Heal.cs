@@ -10,6 +10,7 @@ namespace _Source
             if (other.gameObject.TryGetComponent(out Player player))
             {
                 player.currentHealth+=player.maxHealth/2;
+                Destroy(gameObject);
             }
         }
     }
