@@ -3,7 +3,10 @@ guid: 372ff6a8d400bf44dafb766b7cb63485
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sfxManager: {instanceID: 0}
+  - takeDamageClip: {fileID: 8300000, guid: 8d8173abe2d71fe4fbe96b78f2bdb77f, type: 3}
+  - dieClip: {fileID: 8300000, guid: 85a47939624f42f428c900ca40292679, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

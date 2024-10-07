@@ -12,23 +12,7 @@ public class EndGame : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            StartCoroutine(FadeOutAndLoadScene());
+            SceneManager.LoadScene("MainMenu");
         }
-    }
-
-    private IEnumerator FadeOutAndLoadScene()
-    {
-        float elapsedTime = 0f;
-        Color panelColor = fadePanel.color;
-        
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            panelColor.a = Mathf.Clamp01(elapsedTime / fadeDuration);
-            fadePanel.color = panelColor;
-            yield return null;
-        }
-
-        SceneManager.LoadScene("MainMenu");
     }
 }
