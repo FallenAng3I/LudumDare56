@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 20494570}
   - component: {fileID: 20494569}
   - component: {fileID: 20494568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "\u0431\u0430\u043D\u043A\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3503,7 +3503,7 @@ GameObject:
   - component: {fileID: 532872741}
   - component: {fileID: 532872740}
   - component: {fileID: 532872739}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pizzabox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7666,7 +7666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4b38eceeb74d5428e17c8d4c44ee8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadePanel: {fileID: 0}
+  fadePanel: {fileID: 1004296166}
   fadeDuration: 1
 --- !u!1 &954391434
 GameObject:
@@ -15241,7 +15241,7 @@ GameObject:
   - component: {fileID: 2025193316}
   - component: {fileID: 2025193315}
   - component: {fileID: 2025193317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "\u043A\u043E\u0440\u043E\u0447\u043A\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
