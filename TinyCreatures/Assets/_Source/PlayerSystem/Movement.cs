@@ -102,8 +102,7 @@ sealed public class Movement : MonoBehaviour
         {
             moveAnim.SetTrigger("IdleMove");
         }
-
-        if (isMoving == true)
+        if (isMoving)
         {
             moveAnim.SetTrigger("Move");
         }
