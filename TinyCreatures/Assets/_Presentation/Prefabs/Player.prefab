@@ -466,10 +466,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bff270e574fedb4f8db968c37219c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  playerIcon: {fileID: 0}
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
   speed: 3.7
   sprintMultiplier: 2
   jumpForce: 15
+  invulnerabilityCD: 3
 --- !u!114 &2929142099262546389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +486,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49df06c4eec9ef4793518a353c8391d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchImgs: {fileID: 0}
+  shotgun: {fileID: 749414084434808243}
+  automat: {fileID: 5768774977337839248}
+  grenade: {fileID: 194731820068506503}
 --- !u!114 &5768774977337839248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5368827746917693575}
   bulletPrefab: {fileID: 5047103972810984035, guid: 63435fa803180ce409b12ce322df015e, type: 3}
-  ammo: 30
+  currentAmmo: 0
   Rate: 0.1
   pelletCount: 1
   bulletDestroyTime: 2
@@ -517,13 +525,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5368827746917693575}
   bulletPrefab: {fileID: 2418066738019923405, guid: 95a9ac00066cdaf4bb97bb02111541c3, type: 3}
-  ammo: 8
+  currentAmmo: 0
   Rate: 1
   pelletCount: 2
   bulletDestroyTime: 2
   spreadAngle: 5
   speedOfFly: 40
   canShoot: 1
+  ammoCountUI: {fileID: 0}
+  maxAmmoCount: 8
 --- !u!114 &194731820068506503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5368827746917693575}
   bulletPrefab: {fileID: 5184390390530086358, guid: 244492a4746d38349af42e32a077d011, type: 3}
-  ammo: 4
+  currentAmmo: 0
   Rate: 4
   pelletCount: 0
   bulletDestroyTime: 2
@@ -546,6 +556,7 @@ MonoBehaviour:
   speedOfFly: 5
   canShoot: 1
   boom: {fileID: 8685758985424775512, guid: d5a254bc5f47d67439839e361c937bd6, type: 3}
+  ammoCount: {fileID: 0}
 --- !u!114 &2993005616425336540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,8 +635,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022616625, y: -0.1697104}
-  m_Size: {x: 1.048656, y: 1.342843}
+  m_Offset: {x: -0.022616625, y: -0.1718579}
+  m_Size: {x: 1.048656, y: 1.347138}
   m_Direction: 0
 --- !u!50 &4188833440682310120
 Rigidbody2D:
