@@ -50,7 +50,7 @@ MonoBehaviour:
   health: 5
   speed: 25
   damage: 20
-  attackRange: 1.4
+  attackRange: 2
   detectionRadius: 15
   playerLayer:
     serializedVersion: 2

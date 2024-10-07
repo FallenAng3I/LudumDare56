@@ -106,7 +106,6 @@ sealed public class Movement : MonoBehaviour
         {
             moveAnim.SetTrigger("Move");
         }
-        Debug.Log("Можешь прыгать? " + canJump + " На земле? " + IsGrounded());
 
         MoveHandle();
         HandleJump();
